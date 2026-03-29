@@ -1,0 +1,18 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-json
+    -   id: check-added-large-files
+
+-   repo: local
+    hooks:
+    -   id: shopify-theme-check
+        name: Shopify Theme Check
+        entry: shopify theme check
+        language: system
+        pass_filenames: false
+        files: \.(liquid|json|js|css)$
