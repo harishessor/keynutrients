@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_UARfF3": {
+      "type": "image-banner",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Be_a_Key_Partner_Main_Desktop.webp",
+        "mobile_image": "shopify://shop_images/Be_a_Key_Partner_Main_Mobile_621aa221-df3d-4b6f-a6ed-b0cf4b97d58e.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_3kyx8p": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7TwfwG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Become a Key Partner",
+            "heading_size": "h1"
+          }
+        },
+        "text_6dceJK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Passionate about health and wellness? Join us to spread the message of \"Hydrate Better with Key Nutrients.\" Whether you're a fitness influencer, wellness blogger, health coach, or simply someone with a passion for holistic living,– let's collaborate for a positive impact!</p><p></p><p>Click the sign-up button below, and you'll be directed to a page where you can fill out the form.</p>"
+          }
+        },
+        "button_g4yzcp": {
+          "type": "button",
+          "settings": {
+            "button_label": "SIGN UP NOW",
+            "button_link": "https://ambassador.upfluence.co/become-a-key-partner",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7TwfwG",
+        "text_6dceJK",
+        "button_g4yzcp"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_UhXVAp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3AaDV8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Exclusive_Discounts.svg",
+            "title": "Exclusive Discounts",
+            "text": "<p>Hydration is key, so why not spread the love? Score exclusive discounts that you can share with your followers.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cWagPt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Breaking_News_on_Launches.svg",
+            "title": "Breaking News on Launches",
+            "text": "<p>Be the first to hear about updates on product launches and upcoming campaigns before they're known to the public.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_agGNTW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/High_Quality_Non-GMO_copy.svg",
+            "title": "Collaboration Opportunities",
+            "text": "<p>Make sure you're in the loop to hear about opportunities for sponsored content collaborations.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6GfUrk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Affiliate_Earnings.svg",
+            "title": "Affiliate Earnings",
+            "text": "<p>Join our special affiliate programs to boost your earnings and share your hydration routine with the rest of our community.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3AaDV8",
+        "column_cWagPt",
+        "column_agGNTW",
+        "column_6GfUrk"
+      ],
+      "custom_css": [
+        ".h1 {justify-content: center !important; text-align: center !important;}",
+        ".title-wrapper-with-link {justify-content: center;}"
+      ],
+      "settings": {
+        "title": "Benefits as a Partner",
+        "heading_size": "h1",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "rich_text_Cqgpe7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fTYheh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign Up as an Affiliate",
+            "heading_size": "h1"
+          }
+        },
+        "text_7yQP6J": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Complete the form below and our team will contact you soon to explore partnership possibilities.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fTYheh",
+        "text_7yQP6J"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "contact_form_7hNmbQ": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_nUU4GF": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_qcpmMR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_px4XKr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_pXDhLD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_qcpmMR",
+        "collapsible_row_px4XKr",
+        "collapsible_row_pXDhLD"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7",
+        "color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_UARfF3",
+    "rich_text_3kyx8p",
+    "multicolumn_UhXVAp",
+    "rich_text_Cqgpe7",
+    "contact_form_7hNmbQ",
+    "collapsible_content_nUU4GF"
+  ]
+}

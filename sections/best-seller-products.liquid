@@ -1,0 +1,495 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.5);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.5);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+    <div class="best-seller__title title-wrapper center title-wrapper--no-top-margin">
+        {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.title }}
+        </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+        <div class="best-seller__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.description -}}            
+        </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_category -%}
+        <div class="best-seller__tabs">
+            <ul class="tabs">
+                {%- for block in section.blocks -%}
+                <li class="tab-link {% if forloop.first %}active{% endif %}" data-tab="{{ forloop.index }}">{{ block.settings.tab_title }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        {%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+    <div id="bsp_tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}active{% endif %}">            
+        <div class="best-seller-products__wrap">
+
+            {% if block.settings.product1_image != blank %}
+            <div class="best-seller-product">
+                <div class="best-seller-product__image">
+                    <img src="{{ block.settings.product1_image | img_url:'master' }}">
+                </div>
+                <div class="best-seller-product__content">
+                    <div class="best-seller-product__upper">
+                        {% if block.settings.product1_title != blank %}
+                        <div class="h2">{{ block.settings.product1_title }}</div>
+                        {% endif %}
+                        {% if block.settings.product1_content != blank %}
+                        <div class="rte">
+                            {{ block.settings.product1_content }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if block.settings.product1 != blank %}                    
+                    <div class="best-seller-product__link">
+                        <a href="{{ block.settings.product1 }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.product2_image != blank %}
+            <div class="best-seller-product">
+                <div class="best-seller-product__image">
+                    <img src="{{ block.settings.product2_image | img_url:'master' }}">
+                </div>
+                <div class="best-seller-product__content">
+                    <div class="best-seller-product__upper">
+                        {% if block.settings.product2_title != blank %}
+                        <div class="h2">{{ block.settings.product2_title }}</div>
+                        {% endif %}
+                        {% if block.settings.product2_content != blank %}
+                        <div class="rte">
+                            {{ block.settings.product2_content }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if block.settings.product2 != blank %}                    
+                    <div class="best-seller-product__link">
+                        <a href="{{ block.settings.product2 }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.product3_image != blank %}
+            <div class="best-seller-product">
+                <div class="best-seller-product__image">
+                    <img src="{{ block.settings.product3_image | img_url:'master' }}">
+                </div>
+                <div class="best-seller-product__content">
+                    <div class="best-seller-product__upper">
+                        {% if block.settings.product3_title != blank %}
+                        <div class="h2">{{ block.settings.product3_title }}</div>
+                        {% endif %}
+                        {% if block.settings.product3_content != blank %}
+                        <div class="rte">
+                            {{ block.settings.product3_content }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if block.settings.product3 != blank %}
+                    <div class="best-seller-product__link">
+                        <a href="{{ block.settings.product3 }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    {%- endfor -%}
+
+  </div>
+</div>
+
+
+<style>
+#shopify-section-{{ section.id }} .best-seller__tabs {
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    overflow: auto hidden;
+}
+#shopify-section-{{ section.id }} .tabs {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: safe center;
+    gap: 30px;
+}
+#shopify-section-{{ section.id }} .tab-link {
+    list-style: none;
+    color: #B2B7BD;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+}
+#shopify-section-{{ section.id }} .tab-link.active {
+    color: #0E1D30;
+    border-image: linear-gradient(-90deg, #989898, #E9E9E9, #777777, #E1E1E1) 1;
+}
+#shopify-section-{{ section.id }} .tab-content {
+    display: none;
+}
+#shopify-section-{{ section.id }} .tab-content.active {
+    display: block;
+}
+#shopify-section-{{ section.id }} .best-seller__tabs {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeIn 0.5s ease 1 forwards;
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product {
+    width: calc(33.33% - 10px * 2 / 3);
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__image {
+    position: relative;
+    padding-bottom: 120%;
+    overflow: hidden;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 30px;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__link {
+    display: flex;
+    justify-content: flex-end;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__upper .rte {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 26px;
+    margin-top: 12px;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__link a svg {
+    display: block;
+}
+#shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__link a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+@media(max-width: 989px) {
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__upper .rte {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 6px;
+  }
+  #shopify-section-{{ section.id }} h2, 
+  #shopify-section-{{ section.id }} .h2 {
+    font-size: calc(var(--font-heading-scale) * 2.8rem);
+  }
+
+}
+
+@media(max-width: 749px) {
+  #shopify-section-{{ section.id }} .best-seller-products__wrap {
+    margin-right: -1.5rem;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    overflow: auto hidden;
+  }
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product {
+    min-width: 70%;
+  }
+  #shopify-section-{{ section.id }} .best-seller__tabs {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+  #shopify-section-{{ section.id }} .tabs {
+    gap: 20px;
+  }
+  #shopify-section-{{ section.id }} .tab-link {
+    font-size: 13px;
+  }
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__link a svg {
+    width: 30px;
+  }
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__content {
+    padding: 15px;
+  }
+}
+@media(max-width: 480px) {  
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__image {
+    padding-bottom: 120%;
+  }
+  #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product {
+    min-width: 80%;
+  }
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Best Seller Products",
+  "tag": "section",
+  "class": "section shopify-section--best-seller-products",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_text.content"
+    },   
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Shop our best sellers",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-collection.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-collection.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.featured-collection.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-collection.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show Category",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title"
+        },
+        {
+        "type": "header",
+        "content": "Product 1 Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "product1_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "product1_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "product1_content",
+          "label": "Content"
+        },
+        {
+          "type": "url",
+          "id": "product1",
+          "label": "Link"
+        },
+        {
+        "type": "header",
+        "content": "Product 2 Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "product2_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "product2_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "product2_content",
+          "label": "Content"
+        },
+        {
+          "type": "url",
+          "id": "product2",
+          "label": "Link"
+        },
+        {
+        "type": "header",
+        "content": "Product 3 Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "product3_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "product3_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "product3_content",
+          "label": "Content"
+        },
+        {
+          "type": "url",
+          "id": "product3",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Seller Products"
+    }
+  ]
+}
+{% endschema %}

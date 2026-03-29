@@ -1,0 +1,417 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.blocks.size > 0 -%}
+<div class="pi-key-benefits color-{{ section.settings.color_scheme }} gradient">
+    
+    <div class="section-{{ section.id }}-padding page-width">
+
+        <div class="key-benefits__title title-wrapper center title-wrapper--no-top-margin">
+            {% if section.settings.caption != blank %}
+                <span class="caption {{ section.settings.text_style }} {{ section.settings.text_style }}--{{ section.settings.text_size }} {{ section.settings.text_style }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">{{ section.settings.caption }}</span>
+            {% endif %}
+            {%- if section.settings.title != blank -%}
+                <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                {{ section.settings.title }}
+                </h2>
+            {%- endif -%}
+            {%- if section.settings.description != blank -%}
+                <div class="video_reels__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                    {{ section.settings.description -}}
+                </div>
+            {%- endif -%}
+        </div>
+
+        {% assign total = section.blocks.size %}
+        {% assign half = total | divided_by: 2 %}
+
+        <div class="key-benefits__wrapper">
+            <div class="key-benefits__column key-benefits__list">
+                {% for block in section.blocks limit: half %}
+                    {% if block.settings.icon != blank %}
+                    <div class="key-benefits_item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
+                        <div class="icon">
+                            <img src="{{ block.settings.icon | img_url:'master' }}">
+                        </div>
+                        {% if block.settings.icon_title != blank %}
+                        <span class="icon_title">{{ block.settings.icon_title }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="key-benefits__column key-benefits__list_empty">
+                {% if section.settings.image != blank %}
+                <img src="{{ section.settings.image | img_url:'master' }}">
+                {% endif %}
+            </div>
+            <div class="key-benefits__column key-benefits__list">
+                {% for block in section.blocks offset: half %}
+                    {% if block.settings.icon != blank %}
+                    <div class="key-benefits_item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
+                        <div class="icon">
+                            <img src="{{ block.settings.icon | img_url:'master' }}">
+                        </div>
+                        {% if block.settings.icon_title != blank %}
+                        <span class="icon_title">{{ block.settings.icon_title }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if section.settings.button_label != blank %}
+        <div class="section-footer center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">            
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ section.settings.button_link }}" {% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+                {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}
+            </a>            
+        </div>
+        {% endif %}
+
+    </div>
+    
+</div>            
+{%- endif -%}
+
+<style>
+#shopify-section-{{ section.id }} {
+  --section-background-hash: 1;
+}
+{% if section.settings.bg_image != blank %}
+#shopify-section-{{ section.id }} .pi-key-benefits {
+    background: url({{ section.settings.bg_image | img_url:'master' }}) no-repeat center center;
+    background-size: cover;
+}
+{% endif %}
+#shopify-section-{{ section.id }} .title-wrapper {
+    text-align: center;
+    width: 100%;
+}
+#shopify-section-{{ section.id }} .title-wrapper .title {
+    margin-bottom: 0;
+}
+#shopify-section-{{ section.id }} .key-benefits__wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+}
+#shopify-section-{{ section.id }} .key-benefits__column {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+#shopify-section-{{ section.id }} .key-benefits__column .key-benefits_item {
+    max-width: 250px;
+    text-align: center;
+}
+#shopify-section-{{ section.id }} .key-benefits__column .key-benefits_item .icon {
+    width: 80px;
+    margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .key-benefits__column .key-benefits_item .icon_title {
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    margin-top: 15px;
+}
+#shopify-section-{{ section.id }} .section-footer {
+    margin-top: 20px;
+}
+#shopify-section-{{ section.id }} .section-footer .button {
+    min-width: 280px;
+}
+
+@media(max-width: 989px){
+  #shopify-section-{{ section.id }} .key-benefits__column {
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+}
+@media(max-width: 749px){
+  #shopify-section-{{ section.id }} .pi-key-benefits {
+    {% if section.settings.mobile_bg_image != blank %}
+      background: url({{ section.settings.mobile_bg_image | img_url:'master' }}) no-repeat center bottom;
+    {% else %}
+      background: url({{ section.settings.bg_image | img_url:'master' }}) no-repeat center bottom;
+    {% endif %}
+    background-size: cover;
+  }
+  #shopify-section-{{ section.id }} .key-benefits__column {
+    opacity: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  #shopify-section-{{ section.id }} .key-benefits__column.key-benefits__list_empty {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .section-stack h2 {
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+  }
+  #shopify-section-{{ section.id }} .section-header .porse p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  #shopify-section-{{ section.id }} .section-footer {
+    transform: translateY(20px);
+  }
+  #shopify-section-{{ section.id }} .section-footer .button {
+    min-width: 210px;
+  }
+  #shopify-section-{{ section.id }} .key-benefits__wrapper {
+    margin-bottom: 110vw;
+  }
+  #shopify-section-{{ section.id }} .key-benefits__column .key-benefits_item .icon_title {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  #shopify-section-{{ section.id }} .section-header .prose p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  #shopify-section-{{ section.id }} .key-benefits__column .key-benefits_item .icon {
+    width: 60px;
+  }
+}
+
+@media(max-width: 567px){
+  #shopify-section-{{ section.id }} .key-benefits__wrapper {
+    {% comment %} margin-bottom: 50vh; {% endcomment %}
+  }
+}
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Key Benefits",
+  "class": "shopify-section--key-benefits",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "tag": "section",  
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "subtitle",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
+        }
+      ],
+      "default": "caption-with-letter-spacing",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+    },   
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Key benefits",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-collection.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-collection.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.featured-collection.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-collection.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+      "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit-cards",
+      "name": "Benefit Cards",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Key Benefits"
+    }
+  ]
+}
+{% endschema %}

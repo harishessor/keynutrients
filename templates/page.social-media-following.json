@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_UYGq6B": {
+      "type": "image-banner",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Social_Media_Following_Main_Desktop.webp",
+        "mobile_image": "shopify://shop_images/Social_Media_Following_Main_Mobile_d39939ef-7f6b-404b-942a-8e30ca94481f.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_tzdCXB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TVctgr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay in the Loop",
+            "heading_size": "h1"
+          }
+        },
+        "text_N76786": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Key Nutrients brings people together! Follow us on TikTok and Instagram to be a part of our ever expanding community, where we share hydration tips, tricks, and daily motivation to keep us on track for whatever life throws our way.</p><p><strong>Follow us at </strong></p><ul><li><a href=\"https://www.instagram.com/keynutrients\" target=\"_blank\">https://www.instagram.com/keynutrients</a></li><li><a href=\"https://www.facebook.com/keynutrients/\" target=\"_blank\">https://www.facebook.com/keynutrients</a></li><li><a href=\"https://www.tiktok.com/@key_nutrients\" target=\"_blank\">https://www.tiktok.com/@key_nutrients</a></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TVctgr",
+        "text_N76786"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_bVex4B": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XtyMYK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/business_insider_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w9KXaY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/nbc_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QqC8QR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/food_and_wine_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_riePiH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/today_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BEfWDA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/good_housekeeping_1_c3e8b90e-3c68-4030-8ccb-e3e7d8a0b7d3.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KQEVYU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/good_housekeeping_1_c3e8b90e-3c68-4030-8ccb-e3e7d8a0b7d3.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JCjwmb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/today_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_njJGPB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/food_and_wine_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ENrThG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/nbc_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ALaGnP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/business_insider_logo_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XtyMYK",
+        "column_w9KXaY",
+        "column_QqC8QR",
+        "column_riePiH",
+        "column_BEfWDA",
+        "column_KQEVYU",
+        "column_JCjwmb",
+        "column_njJGPB",
+        "column_ENrThG",
+        "column_ALaGnP"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 5,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "image_banner_UYGq6B",
+    "rich_text_tzdCXB",
+    "main",
+    "multicolumn_bVex4B"
+  ]
+}

@@ -1,0 +1,469 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_Rt4AKP": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_8LK4y9": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_8LK4y9"
+      ],
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/About__Collection_Banner_1.webp",
+        "mobile_image": "shopify://shop_images/About__Collection_Banner_1_Mobile.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_z6CcaB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HRUtwd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Extraordinary Hydration for Everyday Life",
+            "heading_size": "h1"
+          }
+        },
+        "text_m8x3Fj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Key Nutrients is here to hydrate the athletes of everyday life. We want to elevate your well-being to the highest degree through the power of hydration.</p><p>Our mission? Help you confidently meet life's daily demands with supplements enriched with electrolytes, ensuring clean ingredients that are accessible, affordable, and trustworthy for all.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HRUtwd",
+        "text_m8x3Fj"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
+    "slideshow_HkCPED": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_NdxnAC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Proud_to_be_a_veteran_Desktop.webp",
+            "mobile_image": "shopify://shop_images/Proud_to_be_a_veteran_Mobile_9581c1df-6a4d-4344-ad02-26cbc8ca8f7a.webp",
+            "image_overlay_opacity": 0,
+            "heading": "We are proud to be a veteran founded and operated business",
+            "heading_size": "h1",
+            "subheading": "Our founder, Joe Ochoa, served in the U.S. army in the early 90's and was stationed in South Korea and Arizona. We stand strong on our veteran-founded roots, as well as our products that are proudly made in the USA.",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NdxnAC"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "image_banner_GXcL4y": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_kEgPJN": {
+          "type": "heading",
+          "settings": {
+            "heading": "We are proud to be a veteran founded and operated business",
+            "heading_size": "h1"
+          }
+        },
+        "text_KpCWJ7": {
+          "type": "text",
+          "settings": {
+            "text": "Serving in the U.S. Army in the early 90’s, I was stationed at Camp Long, in Wonju, South Korea and & Ft. Huachuca (11th Signal Brigade) in Sierra Vista, Arizona. The discipline and organization that was instilled from joining the military at 18 continues to serve me today and also provides an incredible sense of pride.– Joe Ochoa, <em>Owner</em>",
+            "text_style": "body"
+          }
+        },
+        "buttons_HLY8yh": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kEgPJN",
+        "text_KpCWJ7",
+        "buttons_HLY8yh"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Homepage_Heat_Desktop_452ca89a-78fd-4f02-b8ba-ab00e00ec6b6.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_VqmDbA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_J3wJ69": {
+          "type": "heading",
+          "settings": {
+            "heading": "We don't settle for mediocre products",
+            "heading_size": "h1"
+          }
+        },
+        "text_gE7iNB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>And you shouldn’t either. That’s why we take all the necessary steps to ensure our products are meeting our high standards. From the tests we do and the facilities we manufacture in, to who develops and reviews our formulas made with natural ingredients, we make sure to only provide our customers with the best.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_J3wJ69",
+        "text_gE7iNB"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_qnka3C": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jDkLe4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Our_Testing_eb5545c2-931a-4351-978d-eacd2a7bcd22.svg",
+            "title": "Our Testing",
+            "text": "<p>We perform microbial and purity analysis tests as well as allergen-specific testing on all products. As with any raw materials, quality control measures must be applied to all ingredients to ensure they are pure, free of chemical and microbial contaminants, and meet our high ingredient purity standards.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AADETA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Quality_Assured.svg",
+            "title": "Quality Assured",
+            "text": "<p>All our products are manufactured in the USA at FDA-registered and inspected facilities. We establish stringent quality control standards with our manufacturers so that all our supplements exceed expectations set by GMP (Good Manufacturing Practices).</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yPMrXb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/High_Quality_Non-GMO.svg",
+            "title": "High Quality & Non GMO",
+            "text": "<p>We meticulously select high-quality, non-GMO ingredients that meet our rigorous standards. Our commitment to maintaining high ingredient purity standards is unwavering, as we believe in delivering only the finest and most wholesome products to our valued customers.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WWjLz9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Formulated_by_Doctors.svg",
+            "title": "Formulated By Doctors",
+            "text": "<p>Each of our superior formulas is developed and reviewed by a team of naturopathic doctors. We do the due diligence on selecting the most effective natural ingredients, so you don’t have to! With decades of experience, our doctors use their clinical results to formulate products you can trust, that provide results that truly make a difference.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_jDkLe4",
+        "column_AADETA",
+        "column_yPMrXb",
+        "column_WWjLz9"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_bwUyCD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VFAetx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Values",
+            "heading_size": "h1"
+          }
+        },
+        "text_9br9iL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The key to our success? We go above and beyond to ensure that our supplements are made from clean, natural ingredients that help you make it through the daily grind, no matter what life throws your way.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VFAetx",
+        "text_9br9iL"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_Diphww": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "div {height: 1rem; width: 100%; background: white;}",
+        ".hr {height: 2px; background-image: linear-gradient( to right, rgba(6, 235, 255, 1) 0%, rgba(110, 244, 89, 0.431) 13%, rgba(218, 230, 3, 0.855) 20%, rgba(255, 232, 5, 1) 32%, rgba(255, 171, 64, 1) 42%, rgba(255, 77, 0, 1) 54.5%, rgba(255, 21, 22, 1) 65%, rgba(255, 0, 127, 1) 75%, rgba(219, 0, 255, 0.859) 81.5%, rgba(96, 2, 255, 0.376) 88.5%, rgba(1, 3, 255, 1) 100% );}",
+        "hr {color: white !important;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div>\n  <div class=\"hr\">\n</div>",
+        "color_scheme": "scheme-f9792f76-e0b4-4f2f-8295-cd70989e63a5",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multirow_6qyaNp": {
+      "type": "multirow",
+      "blocks": {
+        "row_icmK8D": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Benefit_Image.webp",
+            "caption": "",
+            "heading": "Formulas You Can Trust",
+            "text": "<p>We go the distance to earn your trust. That means quality control measures to ensure ingredients are free of chemical or microbial contaminants and meet our ingredient purity standards.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_dBmjwh": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Values_2.webp",
+            "caption": "",
+            "heading": "A Difference You Can See",
+            "text": "<p>We deliver transformative results. Experience the difference in your daily routine with our products; our commitment to effectiveness is not just promised but experienced.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_zJ7qHz": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/KN_Web-Video_Mobile_82f79859-9aaa-4096-95da-779d130d07cd.gif",
+            "caption": "",
+            "heading": "Optimum Hydration for All",
+            "text": "<p>Upgrade your hydration routine without breaking the bank. We're committed to offering affordable, widely available products, ensuring accessibility for consumers without straining their budgets.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_b74JBY": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Values_4.webp",
+            "caption": "",
+            "heading": "Positivity in Every Sip",
+            "text": "<p>Hydration is just the first step, but we know you got this. We strive to boost well-being and confidence by enriching daily lives with electrolyte benefits, aiming for positive impacts on our users.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_icmK8D",
+        "row_dBmjwh",
+        "row_zJ7qHz",
+        "row_b74JBY"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "row_color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "collapsible_content_RfNcUx": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_VNGRLz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are electrolytes?",
+            "icon": "check_mark",
+            "row_content": "<p>Electrolytes are charged minerals that conduct electricity to power your nervous system. The main electrolytes are sodium, chloride, potassium, magnesium, calcium, phosphorus and bicarbonate.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NDJBRC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why do I need electrolytes?",
+            "icon": "check_mark",
+            "row_content": "<p>Being low in electrolytes can lead to fatigue, cramps, headaches, and weakness. This is super common for keto and active folks, who lose more electrolytes through sweat and urine. Replacing electrolytes means better energy and less symptoms.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QeBrRJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are ketones?",
+            "icon": "check_mark",
+            "row_content": "<p>Ketones are tiny molecules that fuel your body with alternate energy when carbs are scarce. There are three types of ketones: beta-hydroxybutyrate (BHB), acetoacetate, and acetone. BHB is your main energy ketone, and the active ingredient in Key Keto.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CrHHwB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are exogenous ketones?",
+            "icon": "check_mark",
+            "row_content": "<p>Exogenous ketones are ketones that originate outside your body. They’re nearly identical to the ketones your body makes on a keto diet.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dGxEcY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need to be on a low-carb diet to take Key Keto?",
+            "icon": "check_mark",
+            "row_content": "<p>No, exogenous ketones will elevate ketones even in the presence of carbs. Still, we recommend a keto diet for maximum synergy and benefits.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_VNGRLz",
+        "collapsible_row_NDJBRC",
+        "collapsible_row_QeBrRJ",
+        "collapsible_row_CrHHwB",
+        "collapsible_row_dGxEcY"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_Rt4AKP",
+    "rich_text_z6CcaB",
+    "slideshow_HkCPED",
+    "image_banner_GXcL4y",
+    "main",
+    "rich_text_VqmDbA",
+    "multicolumn_qnka3C",
+    "rich_text_bwUyCD",
+    "custom_liquid_Diphww",
+    "multirow_6qyaNp",
+    "collapsible_content_RfNcUx"
+  ]
+}

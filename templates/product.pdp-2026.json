@@ -1,0 +1,1060 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "quick_buttons_KmUGnF": {
+      "type": "quick-buttons",
+      "blocks": {
+        "button_g3M9z6": {
+          "type": "button",
+          "settings": {
+            "button_text": "Best Sellers",
+            "button_link": "#"
+          }
+        },
+        "button_yH7UCe": {
+          "type": "button",
+          "settings": {
+            "button_text": "Electrolyte Powder",
+            "button_link": "shopify://collections/electrolytes"
+          }
+        },
+        "button_mFY46G": {
+          "type": "button",
+          "settings": {
+            "button_text": "Bundles",
+            "button_link": "shopify://collections/bundles"
+          }
+        },
+        "button_imtQ9T": {
+          "type": "button",
+          "settings": {
+            "button_text": "Multi Flavor Packets",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_g3M9z6",
+        "button_yH7UCe",
+        "button_mFY46G",
+        "button_imtQ9T"
+      ],
+      "name": "Quick Buttons",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "stamped_reviews_star_rating_badge_rtxjDi": {
+          "type": "shopify://apps/stamped-reviews/blocks/star-rating-badge/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "use_metafields": false,
+            "sku_tagtype": "sku",
+            "is_featured_product": true,
+            "featured_product_handle": "electrolyte-recovery-plus"
+          }
+        },
+        "text_8TnJTX": {
+          "type": "text",
+          "settings": {
+            "text": "Replenish key electrolytes and essential vitamins, whether you're home or on the move!",
+            "text_style": "body"
+          }
+        },
+        "video_reels_jW6yWw": {
+          "type": "video-reels",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
+        "skio_plan_picker_7ihJhe": {
+          "type": "skio-plan-picker",
+          "settings": {
+            "form_id": "product-form-{{section.id}}",
+            "external_price_selector": ".price-item.price-item--sale.price-item--last",
+            "show_details": false,
+            "show_without_subscription": false,
+            "show_compare_price": true,
+            "legend_content": "Select subscription plan",
+            "show_legend": false,
+            "layout": "vertical",
+            "dropdownPosition": "inside",
+            "additional_frequency_label": "",
+            "start_onetime": true,
+            "onetime_first": false,
+            "group_border_radius": 6,
+            "group_border_width": 1,
+            "group_border_color": "#dce0e4",
+            "group_border_selected_color": "#0e1d30",
+            "group_background_color": "rgba(0,0,0,0)",
+            "selected_group_background_color": "rgba(0,0,0,0)",
+            "group_text_color": "#0e1d30",
+            "group_selected_text_color": "#0e1d30",
+            "show_radio_selector": true,
+            "onetime_title": "One time purchase",
+            "subscription_title": "Subscribe & Save",
+            "prepaid_title": "Prepaid",
+            "discount_format": "percent",
+            "discount_style": "bubble",
+            "discount_text": "Save [discount]",
+            "discount_color": "#1560bd",
+            "discount_text_color": "#ffffff",
+            "additional_subscription_content": "<ul>\n<li>Save 20% off</li>\n<li>Free shipping</li>\n<li>Money-back guarantee</li>\n<li>Cancel anytime</li>\n</ul>",
+            "selector_type": "button",
+            "button_plan_selector_width": 100,
+            "show_tooltip": true,
+            "tooltip_content": "",
+            "tooltip_background_color": "#f0f8ff",
+            "tooltip_text_color": "#0e1d30",
+            "default_subscription": "",
+            "future_price_adjustments_text": "<small>Then [discount] off after the [order_count_ordinal] order</small>",
+            "element_name": "skio-plan-picker",
+            "product_handle": "",
+            "combine_groups": false,
+            "combined_group_name": "Subscription"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "discount_offer_kweKEf": {
+          "type": "discount-offer",
+          "settings": {
+            "offer1": "<p><strong>FREE shipping</strong> for new customers—automatically applied at checkout!</p>",
+            "offer2": "<p><strong>FREE shipping</strong> on orders $60 and up</p>",
+            "offer3": "",
+            "offer4": "",
+            "offer5": "",
+            "background": "",
+            "text_color": ""
+          }
+        },
+        "customer_reviews_PzUWHV": {
+          "type": "customer-reviews",
+          "settings": {}
+        },
+        "text_LDyTyH": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.metafields.custom.new_disclaimer.value }}",
+            "text_style": "body"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": true,
+            "collapse_content": true
+          }
+        },
+        "icon_with_text_gTKfKp": {
+          "type": "icon-with-text",
+          "settings": {
+            "show_below_gallery": true,
+            "layout": "horizontal",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/Rectangle_48_3e7db3b1-4d3c-48ab-8f7f-d5fde55b5394.svg",
+            "heading_1": "Zero Sugar",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/Rectangle_48_3b6ed120-7a9b-4cff-ba66-a179366a9304.svg",
+            "heading_2": "Zero Carbs",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/Rectangle_48_6e20f369-6302-4c8d-9249-0a896932b221.svg",
+            "heading_3": "Zero Calories",
+            "icon_4": "none",
+            "image_4": "shopify://shop_images/Rectangle_48_c8546cb3-1a09-4484-aa98-f387431a633d.svg",
+            "heading_4": "Made in USA"
+          }
+        },
+        "image_PqGm9d": {
+          "type": "image",
+          "settings": {
+            "show_below_gallery": true,
+            "image": "shopify://shop_images/Rectangle_279.jpg",
+            "image_link": "",
+            "display": "desktop"
+          }
+        },
+        "collapsible_tab_ntBJ8w": {
+          "type": "collapsible_tab",
+          "settings": {
+            "show_below_gallery": true,
+            "heading": "Description",
+            "icon": "check_mark",
+            "content": "<p>{{ product.metafields.skd.description_for_tabs | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_PaU8pt": {
+          "type": "collapsible_tab",
+          "settings": {
+            "show_below_gallery": true,
+            "heading": "Ingredients",
+            "icon": "check_mark",
+            "content": "{{ product.metafields.custom.ingredients | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_qTYh7m": {
+          "type": "collapsible_tab",
+          "settings": {
+            "show_below_gallery": true,
+            "heading": "When to Take",
+            "icon": "check_mark",
+            "content": "{{ product.metafields.custom.how_to_take | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_ieNtxa": {
+          "type": "collapsible_tab",
+          "settings": {
+            "show_below_gallery": true,
+            "heading": "How To Use",
+            "icon": "check_mark",
+            "content": "{{ product.metafields.custom.how_to_use | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_KbCw9n": {
+          "type": "collapsible_tab",
+          "settings": {
+            "show_below_gallery": true,
+            "heading": "Important Information",
+            "icon": "check_mark",
+            "content": "<h4>Safety Information</h4><p>Do not exceed recommended dose. Consult a physician before use if pregnant, nursing, under the age of 18, or if you have a serious medical condition. Anecdotal responses of dizziness, headaches, and stomach discomfort after consumption have been reported.</p><h4>Legal Disclaimer</h4><p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to treat, diagnose, cure, or prevent any disease.</p>",
+            "page": ""
+          }
+        },
+        "image_4WHfqN": {
+          "type": "image",
+          "settings": {
+            "show_below_gallery": true,
+            "image": "shopify://shop_images/Rectangle_279.jpg",
+            "image_link": "#",
+            "display": "mobile"
+          }
+        },
+        "complementary_A3nczc": {
+          "type": "complementary",
+          "settings": {
+            "show_below_gallery": true,
+            "block_heading": "Pairs Perfectly With",
+            "make_collapsible_row": false,
+            "product_list_limit": 2,
+            "products_per_page": 2,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "stamped_reviews_star_rating_badge_rtxjDi",
+        "text_8TnJTX",
+        "video_reels_jW6yWw",
+        "variant_picker",
+        "skio_plan_picker_7ihJhe",
+        "quantity_selector",
+        "buy_buttons",
+        "discount_offer_kweKEf",
+        "customer_reviews_PzUWHV",
+        "text_LDyTyH",
+        "description",
+        "icon_with_text_gTKfKp",
+        "image_PqGm9d",
+        "collapsible_tab_ntBJ8w",
+        "collapsible_tab_PaU8pt",
+        "collapsible_tab_qTYh7m",
+        "collapsible_tab_ieNtxa",
+        "collapsible_tab_KbCw9n",
+        "image_4WHfqN",
+        "complementary_A3nczc"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 52,
+        "padding_bottom": 72
+      }
+    },
+    "product_navigation_efidMc": {
+      "type": "product-navigation",
+      "blocks": {
+        "item_3DxVbV": {
+          "type": "item",
+          "settings": {
+            "nav_text": "Key Benefits",
+            "nav_link": "#shopify-section-template--21755199160568__key_benefits_j8XjWm"
+          }
+        },
+        "item_6nyNKL": {
+          "type": "item",
+          "settings": {
+            "nav_text": "Us Vs Them",
+            "nav_link": "#shopify-section-template--21755199160568__us_vs_them_FLgGXm"
+          }
+        },
+        "item_9Kjj3E": {
+          "type": "item",
+          "settings": {
+            "nav_text": "How To Use",
+            "nav_link": "#shopify-section-template--21755199160568__multicolumn_JdhHJk"
+          }
+        },
+        "item_N6WJGK": {
+          "type": "item",
+          "settings": {
+            "nav_text": "Vitamins And Minerals",
+            "nav_link": "#shopify-section-template--21755199160568__image_with_text_T3Dww8"
+          }
+        },
+        "item_e93xyG": {
+          "type": "item",
+          "settings": {
+            "nav_text": "Backed By Science",
+            "nav_link": "#shopify-section-template--21755199160568__text_with_icons_N4zVzd"
+          }
+        },
+        "item_pcjrJ7": {
+          "type": "item",
+          "settings": {
+            "nav_text": "Reviews",
+            "nav_link": "#shopify-section-template--21755199160568__testimonial_M9QXt3"
+          }
+        },
+        "item_GVhELd": {
+          "type": "item",
+          "settings": {
+            "nav_text": "FAQs",
+            "nav_link": "#shopify-section-template--21755199160568__collapsible_content_WTeWzj"
+          }
+        }
+      },
+      "block_order": [
+        "item_3DxVbV",
+        "item_6nyNKL",
+        "item_9Kjj3E",
+        "item_N6WJGK",
+        "item_e93xyG",
+        "item_pcjrJ7",
+        "item_GVhELd"
+      ],
+      "name": "Product Navigation",
+      "settings": {
+        "text_color": "#0e1d30",
+        "bg_color": "#f0f8ff"
+      }
+    },
+    "key_benefits_j8XjWm": {
+      "type": "key-benefits",
+      "blocks": {
+        "benefit_cards_knajGe": {
+          "type": "benefit-cards",
+          "repeater": "{{ product.metafields.custom.benefit_cards.value }}",
+          "settings": {
+            "icon": "{{ block.repeater.icon.value }}",
+            "icon_title": "{{ block.repeater.title.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_cards_knajGe"
+      ],
+      "name": "Key Benefits",
+      "settings": {
+        "full_width": true,
+        "bg_image": "{{ product.metafields.custom.key_benefits.value.desktop_image.value }}",
+        "mobile_bg_image": "{{ product.metafields.custom.key_benefits.value.mobile_image.value }}",
+        "caption": "",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "title": "{{ product.metafields.custom.key_benefits.value.heading.value }}",
+        "heading_size": "h0",
+        "description": "{{ product.metafields.custom.key_benefits.value.content | metafield_tag }}",
+        "description_style": "subtitle",
+        "button_label": "{{ product.metafields.custom.key_benefits.value.link_text.value }}",
+        "button_link": "{{ product.metafields.custom.key_benefits.value.link_url.value }}",
+        "button_style_secondary": false,
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "our_flavors_PWwjiQ": {
+      "type": "our-flavors",
+      "blocks": {
+        "heading_w8YkGB": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ product.metafields.custom.our_flavors_section.value.heading.value }}",
+            "heading_size": "h0"
+          }
+        },
+        "text_jWBTUh": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.our_flavors_section.value.text_1 | metafield_tag }}",
+            "text_style": "body"
+          }
+        },
+        "flavor_ym9e7p": {
+          "type": "flavor",
+          "repeater": "{{ product.metafields.custom.flavors_items.value }}",
+          "settings": {
+            "flavor_icon": "{{ block.repeater.flavor_icon.value }}",
+            "flavor_name": "{{ block.repeater.flavor_name.value }}",
+            "flavor_image": "{{ block.repeater.flavor_image.value }}",
+            "background_image": "{{ block.repeater.flavor_background_image.value }}"
+          }
+        },
+        "text_xBQP9h": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.our_flavors_section.value.text_2 | metafield_tag }}",
+            "text_style": "body"
+          }
+        },
+        "button_X3dRGk": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_w8YkGB",
+        "text_jWBTUh",
+        "flavor_ym9e7p",
+        "text_xBQP9h",
+        "button_X3dRGk"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.gradient {padding-bottom: 0; }}"
+      ],
+      "name": "Our Flavors",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "us_vs_them_FLgGXm": {
+      "type": "us-vs-them",
+      "blocks": {
+        "key_point_PtNQc9": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤500mg",
+            "lable": "Electrolytes"
+          }
+        },
+        "key_point_JRpxqk": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤60mg",
+            "lable": "Sodium"
+          }
+        },
+        "key_point_hKTEJT": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤50mg",
+            "lable": "Magnesium"
+          }
+        },
+        "key_point_b6MVrt": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤40mg",
+            "lable": "Calcium"
+          }
+        },
+        "key_point_fJ6pPy": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤150mg",
+            "lable": "Potassium"
+          }
+        },
+        "key_point_3cQWBB": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤5mg",
+            "lable": "Chloride"
+          }
+        },
+        "key_point_WBcMRB": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤5mg",
+            "lable": "Chloride"
+          }
+        },
+        "key_point_4x3afA": {
+          "type": "key-point",
+          "settings": {
+            "value": "≤5",
+            "lable": "ESSENTIAL VITAMINS"
+          }
+        }
+      },
+      "block_order": [
+        "key_point_PtNQc9",
+        "key_point_JRpxqk",
+        "key_point_hKTEJT",
+        "key_point_b6MVrt",
+        "key_point_fJ6pPy",
+        "key_point_3cQWBB",
+        "key_point_WBcMRB",
+        "key_point_4x3afA"
+      ],
+      "name": "Us vs Them",
+      "settings": {
+        "caption": "",
+        "caption_text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "Us vs Them",
+        "heading_size": "h0",
+        "text": "<p>We focus on balanced electrolytes, quality ingredients, and science-backed formulation—so you know exactly what you’re getting and why it works.</p>",
+        "text_style": "subtitle",
+        "button_label": "See the Difference",
+        "button_link": "/products/electrolyte-recovery-plus?variant=41129829040296",
+        "button_style_secondary": false,
+        "video": "shopify://files/videos/video.mp4",
+        "video_poster": "shopify://shop_images/Frame_753.png",
+        "mobile_video": "shopify://files/videos/video mobile.mp4",
+        "mobile_video_poster": "shopify://shop_images/Main_Banner_Mobile.webp",
+        "video_caption": "Based on a 90oz serving",
+        "right_title": "Other brands",
+        "color_scheme": "scheme-3",
+        "padding_top": 72,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_JdhHJk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LzczWd": {
+          "type": "column",
+          "repeater": "{{ product.metafields.custom.how_to_use_steps.value }}",
+          "settings": {
+            "image": "{{ block.repeater.image.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.content | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_LzczWd"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "{{ product.metafields.custom.how_to_use_section.value.heading.value }}",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "{{ product.metafields.custom.how_to_use_section.value.button_text.value }}",
+        "button_link": "{{ product.metafields.custom.how_to_use_section.value.button_link.value }}",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "image_with_text_mJeEPc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nP4fai": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ product.metafields.custom.image_with_text_icons.value.heading.value }}",
+            "heading_size": "h0"
+          }
+        },
+        "icon_K7VK8R": {
+          "type": "icon",
+          "repeater": "{{ product.metafields.custom.image_with_text_icons_items.value }}",
+          "settings": {
+            "icon": "{{ block.repeater.icon.value }}",
+            "icon_title": "{{ block.repeater.title.value }}",
+            "icon_text": "{{ block.repeater.content | metafield_tag }}"
+          }
+        },
+        "button_FK7nj4": {
+          "type": "button",
+          "settings": {
+            "button_label": "{{ product.metafields.custom.image_with_text_icons.value.button_text.value }}",
+            "button_link": "{{ product.metafields.custom.image_with_text_icons.value.button_link.value }}",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nP4fai",
+        "icon_K7VK8R",
+        "button_FK7nj4"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.gradient {padding-bottom: 0; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "{{ product.metafields.custom.image_with_text_icons.value.image.value }}",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "icon_list_style": "verticle",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "image_with_text_T3Dww8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_8mqzLz": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ product.metafields.custom.image_with_text_vitamin.value.heading.value }}",
+            "heading_size": "h0"
+          }
+        },
+        "badge_KP4x79": {
+          "type": "badge",
+          "repeater": "{{ product.metafields.custom.image_with_text_vitamin_badges.value }}",
+          "settings": {
+            "badge": "{{ block.repeater.title.value }}",
+            "badge_content": "{{ block.repeater.content | metafield_tag }}"
+          }
+        },
+        "button_Atg4ET": {
+          "type": "button",
+          "settings": {
+            "button_label": "{{ product.metafields.custom.image_with_text_vitamin.value.button_text.value }}",
+            "button_link": "{{ product.metafields.custom.image_with_text_vitamin.value.button_link.value }}",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8mqzLz",
+        "badge_KP4x79",
+        "button_Atg4ET"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.gradient {padding-bottom: 0; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "{{ product.metafields.custom.image_with_text_vitamin.value.image.value }}",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "icon_list_style": "horizontal",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "text_with_icons_N4zVzd": {
+      "type": "text-with-icons",
+      "blocks": {
+        "block_t8b66C": {
+          "type": "block",
+          "repeater": "{{ product.metafields.custom.backed_by_science_icons.value }}",
+          "settings": {
+            "image": "{{ block.repeater.icon.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.content | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_t8b66C"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "title": "Backed by Science",
+        "heading_size": "h0",
+        "image_width": 100,
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "testimonial_M9QXt3": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_8xWbdT": {
+          "type": "testimonial",
+          "repeater": "{{ product.metafields.custom.testimonial.value }}",
+          "settings": {
+            "image": "{{ block.repeater.image.value }}",
+            "show_rating": true,
+            "rating": 5,
+            "title": "{{ block.repeater.title.value }}",
+            "content": "{{ block.repeater.content | metafield_tag }}",
+            "author": "{{ block.repeater.author.value }}",
+            "verified_buyer": true,
+            "date": "{{ block.repeater.date.value }}",
+            "link_text": "{{ block.repeater.button_text.value }}",
+            "product_link": "{{ block.repeater.button_link.value }}",
+            "category": ""
+          }
+        },
+        "testimonial_D6VxUn": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49_3.png",
+            "show_rating": true,
+            "rating": 5,
+            "title": "Great for travel and camping.",
+            "content": "<p>I usually use electrolyte drops and monk fruit sweetener at home, but these little packets are great for travel and camping so I don't need to pack the bottles. The powder is VERY sweet... too much for me, but I just use half the packet in my bottle, which is perfect. The flavor is great and the hydration is great.</p>",
+            "author": "",
+            "verified_buyer": false,
+            "date": "",
+            "link_text": "Shop now",
+            "product_link": "",
+            "category": "ELECTROLYTE POWDER"
+          }
+        },
+        "testimonial_cEdp9y": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49_4.png",
+            "show_rating": true,
+            "rating": 5,
+            "title": "Works well for my needs",
+            "content": "<p>I love this flavor. It ain’t gotta multivitamin undertone/after-taste. Great for hot/humid regions, gyms/sports, and even my plasma donation prep. I do not get the same nauseating feeling I got with others I’ve tried.</p>",
+            "author": "",
+            "verified_buyer": false,
+            "date": "",
+            "link_text": "Shop now",
+            "product_link": "https://keynutrients.com/collections/all",
+            "category": "ELECTROLYTE POWDER"
+          }
+        },
+        "testimonial_cQx4XP": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49_5.png",
+            "show_rating": true,
+            "rating": 5,
+            "title": "Excellent",
+            "content": "<p>This stuff tastes great,and worth the price,as well as does the job with electrolytes. Recommended for people with disabilities. In my opinion.</p>",
+            "author": "",
+            "verified_buyer": false,
+            "date": "",
+            "link_text": "Shop now",
+            "product_link": "https://keynutrients.com/collections/all",
+            "category": "ELECTROLYTE POWDER"
+          }
+        },
+        "testimonial_mjNBqT": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49_4.png",
+            "show_rating": true,
+            "rating": 5,
+            "title": "Great tasting electrolyte mix for cramps",
+            "content": "<p>I was NOT disappointed with the taste. I suffer from leg cramps (upper and lower) and I was looking for a great tasting electrolyte mix that’s reasonably priced p/serving. Plain water just doesn’t do it for me. I’m excited to try some of the other flavors.</p>",
+            "author": "",
+            "verified_buyer": true,
+            "date": "March 15, 2025",
+            "link_text": "Go to product",
+            "product_link": "",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_8xWbdT",
+        "testimonial_D6VxUn",
+        "testimonial_cEdp9y",
+        "testimonial_cQx4XP",
+        "testimonial_mjNBqT"
+      ],
+      "name": "Testimonial",
+      "settings": {
+        "caption": "★★★★★ over 25,000+ satisfied customers",
+        "text_style": "subtitle",
+        "text_size": "large",
+        "title": "What Our Happy Customers Say",
+        "heading_size": "h0",
+        "description": "",
+        "description_style": "body",
+        "show_category": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "image_with_text_bBB9rC": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_bcaxTN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe and Save",
+            "heading_size": "h0"
+          }
+        },
+        "text_HgtJz3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Because running out shouldn’t be part of your routine. Set it once and enjoy the peace of mind that comes with always being stocked.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "icon_RVnia4": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_282.svg",
+            "icon_title": "",
+            "icon_text": "<p>Save 20% off</p>"
+          }
+        },
+        "icon_NMRHWV": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_282_1.svg",
+            "icon_title": "",
+            "icon_text": "<p>Free shipping</p>"
+          }
+        },
+        "icon_nndXFY": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_282_2.svg",
+            "icon_title": "",
+            "icon_text": "<p>Flexible frequency</p>"
+          }
+        },
+        "icon_Y7FzCC": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_282_3.svg",
+            "icon_title": "",
+            "icon_text": "<p>Cancel anytime</p>"
+          }
+        },
+        "button_eCk93T": {
+          "type": "button",
+          "settings": {
+            "button_label": "Subscribe Now",
+            "button_link": "shopify://collections/subscribe-save",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_bcaxTN",
+        "text_HgtJz3",
+        "icon_RVnia4",
+        "icon_NMRHWV",
+        "icon_nndXFY",
+        "icon_Y7FzCC",
+        "button_eCk93T"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image_3.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "icon_list_style": "horizontal",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "custom_css": [],
+      "settings": {
+        "heading": "You Might Also Like",
+        "heading_size": "h0",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_WTeWzj": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_LLi3Ek": {
+          "type": "collapsible_row",
+          "repeater": "{{ product.metafields.custom.faq_s.value }}",
+          "settings": {
+            "heading": "{{ block.repeater.question.value }}",
+            "icon": "check_mark",
+            "row_content": "{{ block.repeater.answer | metafield_tag }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_LLi3Ek"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "1769590482f177a185": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_xDFEDd": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_xDFEDd"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.h0 {font-size: calc(var(--font-heading-scale) * 2.8rem); }}"
+      ],
+      "settings": {
+        "include_margins": true,
+        "color_scheme": "scheme-2",
+        "heading": "Customer reviews",
+        "heading_size": "h0",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "quick_buttons_KmUGnF",
+    "main",
+    "product_navigation_efidMc",
+    "key_benefits_j8XjWm",
+    "our_flavors_PWwjiQ",
+    "us_vs_them_FLgGXm",
+    "multicolumn_JdhHJk",
+    "image_with_text_mJeEPc",
+    "image_with_text_T3Dww8",
+    "text_with_icons_N4zVzd",
+    "testimonial_M9QXt3",
+    "image_with_text_bBB9rC",
+    "related-products",
+    "collapsible_content_WTeWzj",
+    "1769590482f177a185"
+  ]
+}

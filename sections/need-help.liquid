@@ -1,0 +1,270 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.5);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.5);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="">
+  <div class="section-{{ section.id }}-padding">
+    <div class="page-width">
+        <div class="need_help__wrapper color-{{ section.settings.color_scheme }} gradient">
+
+            {% if section.settings.image != blank %}
+            <div class="need_help__image">
+                <img class="desktop_media" src="{{ section.settings.image | img_url:'master' }}">
+                {% if section.settings.mobile_image != blank %}
+                  <img class="mobile_media" src="{{ section.settings.mobile_image | img_url:'master' }}">
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="need_help__content">
+                <div class="need_help__content_left">
+                  {%- if section.settings.title != blank -%}
+                  <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                      {{ section.settings.title }}
+                  </h2>
+                  {%- endif -%}
+                  {%- if section.settings.description != blank -%}
+                  <div class="{{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                      {{ section.settings.description -}}
+                  </div>
+                  {%- endif -%}
+                </div>
+
+                {% if section.settings.btn_text != blank %}
+                <div class="need_help__button">
+                    <a class="button button--secondary medium-hide small-hide" href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }} {% render 'icon-arrow' %}</a>
+                    <a class="underlined-link uppercase large-up-hide" href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }}</a>
+                </div>
+                {% endif %}
+            </div>           
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+#shopify-section-{{ section.id }} .need_help__wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    padding: 25px 35px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+#shopify-section-{{ section.id }} .need_help__image {
+    margin: -25px 0 -25px 0;
+    max-width: 200px;
+}
+#shopify-section-{{ section.id }} .need_help__image img {
+    display: flex;
+    max-width: 100%;
+}
+#shopify-section-{{ section.id }} .need_help__image img.mobile_media {
+  display: none;
+}
+#shopify-section-{{ section.id }} .need_help__content .title {
+    margin: 0 0 5px;
+}
+#shopify-section-{{ section.id }} .need_help__content {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transform: translateY(-5px);
+}
+#shopify-section-{{ section.id }} .need_help__content_left {
+    flex: auto;
+}
+
+
+@media(max-width: 1099px) {
+  #shopify-section-{{ section.id }} .need_help__content {
+    flex-direction: column;    
+    align-items: flex-start;
+  }
+}
+
+@media(max-width: 749px) {
+  #shopify-section-{{ section.id }} .need_help__content .title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .subtitle--medium {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+  }
+  #shopify-section-{{ section.id }} .need_help__image img.desktop_media {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .need_help__image img.mobile_media {
+    display: flex;
+  }
+  #shopify-section-{{ section.id }} .need_help__content {
+    transform: inherit;
+    gap: 5px;
+  }
+}
+@media(max-width: 667px){
+  #shopify-section-{{ section.id }} .need_help__image {
+    margin: 0 -10px -10px -15px;
+    max-width: 170px;
+  }
+  #shopify-section-{{ section.id }} .need_help__wrapper {
+    padding: 10px 15px;
+    gap: 20px;
+    align-items: center;
+  }
+  
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Need Help",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },     
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_text.content"
+    },   
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Need help choosing?",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-collection.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-collection.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle--medium",
+          "label": "t:sections.featured-collection.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-collection.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "Need Help"
+    }
+  ]
+}
+{% endschema %}

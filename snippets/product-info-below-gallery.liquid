@@ -1,0 +1,87 @@
+{%- for block in section.blocks -%}
+    {%- unless block.settings.show_below_gallery -%}
+        {%- continue -%}
+    {%- endunless -%}
+
+    {%- case block.type -%}
+
+        {%- when 'description' -%}
+            
+            {% if block.settings.show_below_gallery and block.settings.collapse_content and product.description != blank %}
+                <div class="product--block product-block--{{ block.type }}">
+                    <div class="accordion" {{ block.shopify_attributes }}>
+                    <div class="acc__card">
+                            <h3 class="acc__title">
+                                Description
+                            </h3>
+                            <div class="acc__panel rte">
+                                {{ product.description }}
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+            {% elsif block.settings.show_below_gallery and product.description != blank %}
+                <div class="product--block product-block--{{ block.type }}">
+                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                        {{ product.description }}
+                    </div>
+                </div>
+            {% endif %}
+
+        {%- when 'collapsible_tab' -%}
+
+            {% if block.settings.show_below_gallery %}
+            <div class="product--block product-block--{{ block.type }}">
+                <div class="accordion" {{ block.shopify_attributes }}>
+                    <div class="acc__card">
+                        <h3 class="acc__title">
+                            {{ block.settings.heading | default: block.settings.page.title | escape }}
+                        </h3>
+                        <div class="acc__panel rte">
+                            {{ block.settings.content }}
+                            {{ block.settings.page.content }}
+                        </div>                
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        {%- when 'image' -%}
+
+            {%- if block.settings.image != blank and block.settings.show_below_gallery -%}
+              <div class="product--block product-block--{{ block.type }} visible-on-{{ block.settings.display }}" {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.image_link }}">
+                  {%- capture sizes -%}
+                    (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ desktop_tablet_padding }}) / 2),
+                    (min-width: 750px) calc((100vw - {{ desktop_tablet_padding }}) / 2),
+                    calc(100vw - {{ mobile_padding }})
+                    {%- endcapture -%}
+                    {{
+                    block.settings.image
+                    | image_url: width: 3200
+                    | image_tag:
+                        sizes: sizes,
+                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200'
+                    }}
+                </a>
+              </div>
+            {%- endif -%}
+
+        {%- when 'icon-with-text' -%}
+
+            {%- if block.settings.show_below_gallery -%}
+                <div class="product--block product-block--{{ block.type }}">
+                    {% render 'icon-with-text', block: block %}
+                </div>
+            {%- endif -%}
+
+        {%- when 'complementary' -%}
+
+            {%- if block.settings.show_below_gallery -%}
+                <div class="product--block product-block--{{ block.type }}{% if block.settings.make_collapsible_row %} product-block--collapsible_tab{% endif %}">
+                    {% render 'complementary-product', block: block %}
+                </div>
+            {%- endif -%}
+
+    {% endcase %}    
+{% endfor %} 

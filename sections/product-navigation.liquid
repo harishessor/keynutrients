@@ -1,0 +1,135 @@
+{%- if section.blocks.size > 0 -%}
+<div class="product_navigation">
+    <div class="page-width">
+        <ul class="product-nav-items unstyled-list">
+        {%- for block in section.blocks -%}
+            {% if block.settings.nav_text != blank %}
+            <li class="product-nav-item">
+                <a {% if block.settings.nav_link != blank %}href="{{ block.settings.nav_link }}"{% endif %}>{{ block.settings.nav_text }}</a>
+            </li>
+            {% endif %}
+        {%- endfor -%}
+        </ul>
+    </div>
+</div>
+{%- endif -%}
+
+<style>
+    .shopify-section--product-navigation {
+        background: {{ section.settings.bg_color }} !important;
+        padding: 15px 0;
+        position: sticky !important;
+        top: 95px;
+        left: 0;
+        right: 0;
+        z-index: 8;
+        transition: all 0.1s ease-in-out; 
+    }
+    .shopify-section--product-navigation.is-touching-header {
+        z-index: 10;
+    }
+    .product-nav-items {
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        justify-content: safe center;
+        display: grid;
+        gap: 50px;
+        scrollbar-width: none;
+        overscroll-behavior-x: contain;
+        overflow: auto hidden;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .product-nav-items .product-nav-item a {
+        color: {{ section.settings.text_color }} !important;
+        text-decoration: none;
+    }
+    .product-nav-items .product-nav-item a.active {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        text-underline-position: from-font;
+    }
+
+
+    @media(max-width: 989px){
+      .shopify-section--product-navigation {
+        top: 76px;
+      }
+      .product-nav-items {
+        gap: 30px;
+      }
+    }
+
+    @media(max-width: 749px){
+      .shopify-section--product-navigation {
+        top: 64px;
+      }
+      .product-nav-items .product-nav-item a {
+        white-space: nowrap;
+      }
+      .product-nav-items::-webkit-scrollbar {
+        width: 0px;
+        display: none;
+      }
+      .product-nav-items .product-nav-item a {
+        font-size: 14px;
+      }
+    }
+    @media(max-width: 567px){
+      .shopify-section--product-navigation {
+        {% comment %} top: 74px; {% endcomment %}
+      }
+    }
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Product Navigation",
+  "tag": "section",
+  "class": "shopify-section shopify-section--product-navigation",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav_text",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "nav_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Navigation"
+    }
+  ]
+}
+{% endschema %}

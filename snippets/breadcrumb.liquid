@@ -1,0 +1,74 @@
+{% unless template == 'index' %}
+<nav class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+
+  {% if template contains 'collection' %}
+    {% if collection.handle %}
+      <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+      <a href="{{ routes.collections_url }}">Collections</a>
+      <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+      <span>Collection {% comment %}{{ collection.title }}{% endcomment %}</span>
+    {% endif %}
+
+  {% elsif template contains 'product' %}
+    {% if product.collections.first %}
+      <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+      <a href="{{ product.collections.first.url }}">
+        Collection {% comment %}{{ product.collections.first.title }}{% endcomment %}
+      </a>
+    {% endif %}
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <span>{{ product.title }}</span>
+
+  {% elsif template contains 'page' %}
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <span>{{ page.title }}</span>
+
+  {% elsif template contains 'blog' %}
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <span>{{ blog.title }}</span>
+
+  {% elsif template contains 'article' %}
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <a href="{{ blog.url }}">{{ blog.title }}</a>
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <span>{{ article.title }}</span>
+
+  {% elsif template contains 'cart' %}
+    <span class="breadcumb_devider" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="6" viewBox="0 0 4 6" fill="none"><path d="M2.48649 3L2.38419e-07 0.7L0.756757 -1.41767e-07L4 3L0.756757 6L2.38419e-07 5.3L2.48649 3Z" fill="#303438"/></svg></span>
+    <span>Cart</span>
+
+  {% endif %}
+</nav>
+{% endunless %}
+
+
+<style>
+.breadcrumb {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.breadcrumb * {
+  color: #0E1D30;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb .breadcumb_devider {
+  margin: 0 13px;
+}
+.breadcrumb span:last-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+</style>

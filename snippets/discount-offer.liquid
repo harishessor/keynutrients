@@ -1,0 +1,94 @@
+<div class="discount-offer__slider swiper-container">
+    <div class="swiper-wrapper">
+
+        {% if block.settings.offer1 != blank %}
+        <div class="offer__item swiper-slide" style="color: {{ block.settings.text_color }};">
+            {{ block.settings.offer1 }}
+        </div>
+        {% endif %}
+
+        {% if block.settings.offer2 != blank %}
+        <div class="offer__item swiper-slide" style="color: {{ block.settings.text_color }};">
+            {{ block.settings.offer2 }}
+        </div>
+        {% endif %}
+
+        {% if block.settings.offer3 != blank %}
+        <div class="offer__item swiper-slide" style="color: {{ block.settings.text_color }};">
+            {{ block.settings.offer3 }}
+        </div>
+        {% endif %}
+
+        {% if block.settings.offer4 != blank %}
+        <div class="offer__item swiper-slide" style="color: {{ block.settings.text_color }};">
+            {{ block.settings.offer4 }}
+        </div>
+        {% endif %}
+
+        {% if block.settings.offer5 != blank %}
+        <div class="offer__item swiper-slide" style="color: {{ block.settings.text_color }};">
+            {{ block.settings.offer5 }}
+        </div>
+        {% endif %}
+
+    </div>    
+</div>
+<div class="swiper--nav offer_swiper--prev"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.86667 4L4.93333 0.933333L4 -1.74846e-07L0 4L4 8L4.93333 7.06667L1.86667 4Z" fill="{{ block.settings.text_color }}"/></svg></div>
+<div class="swiper--nav offer_swiper--next"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.06693 4L0.000260353 0.933333L0.933594 -1.74846e-07L4.93359 4L0.933594 8L0.000260353 7.06667L3.06693 4Z" fill="{{ block.settings.text_color }}"/></svg></div>
+
+
+<style>
+    #shopify-section-{{ section.id }} .product-info__discount-offer .swiper-wrapper {
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .product-info__discount-offer .swiper--nav {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+    }
+    #shopify-section-{{ section.id }} .product-info__discount-offer .offer_swiper--next {
+        left: auto;
+        right: 10px;
+    }
+    #shopify-section-{{ section.id }} .product-info__discount-offer {
+        padding: 10px 40px;
+        text-align: center;
+        border-radius: 8px;
+        position: relative;
+        max-width: 590px;
+        margin: 0 auto;
+    }
+    #shopify-section-{{ section.id }} .product-info__discount-offer .swiper--nav svg {
+        width: 12px;
+        height: 12px;
+        fill: #0E1D30;
+    }
+    #shopify-section-{{ section.id }} .product-info__discount-offer .offer__item * {
+        line-height: normal;
+        margin: 0;
+    }
+    @media(max-width: 699px) {
+        #shopify-section-{{ section.id }} .product-info__discount-offer .offer__item p {
+            font-size: 15px;
+            line-height: 22px;
+        }
+        #shopify-section-{{ section.id }} .product-info__discount-offer {
+            padding: 12px 20px;
+        }
+        #shopify-section-{{ section.id }} .product-info__discount-offer .swiper--nav { 
+            left: 0;
+        }
+        #shopify-section-{{ section.id }} .product-info__discount-offer .offer_swiper--next {
+            left: auto;
+            right: 0;
+        }
+    }
+</style>

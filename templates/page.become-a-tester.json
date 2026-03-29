@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_L8hk4g": {
+      "type": "image-banner",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Be_a_Key_Tester_Main_Desktop.webp",
+        "mobile_image": "shopify://shop_images/Be_a_Key_Tester_Main_Mobile_b77bf55b-f3b5-44eb-abcc-66a8b2491aa4.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_Yr4f6w": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YkaR78": {
+          "type": "heading",
+          "settings": {
+            "heading": "Become a Key Tester",
+            "heading_size": "h1"
+          }
+        },
+        "text_TcVXQf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shape the future! Be one of our product testers and open yourself to a world of rewards — free products, big discounts, and more from Key Nutrients and other top-notch brands.</p><p>Sign up now to get emails from us and our testing partner, Test & Influence. Get started and start being rewarded! <br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YkaR78",
+        "text_TcVXQf"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "17102354434cd1a693": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_VHY68z": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "SVvwqj"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_VHY68z"
+      ],
+      "custom_css": [
+        "{background-color: white;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "contact_form_7XLAbc": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_L8hk4g",
+    "main",
+    "rich_text_Yr4f6w",
+    "17102354434cd1a693",
+    "contact_form_7XLAbc"
+  ]
+}

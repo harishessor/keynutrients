@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_UARfF3": {
+      "type": "image-banner",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/About__Collection_Banner_3.webp",
+        "mobile_image": "shopify://shop_images/About__Collection_Banner_3_Mobile.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_3kyx8p": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7TwfwG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Become a Key Affiliate",
+            "heading_size": "h1"
+          }
+        },
+        "text_6dceJK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fuel your wellness passion! Join us to champion \"Hydrate Better with Key Nutrients.\" Fitness influencer, wellness blogger, or health coach – let's collaborate for a positive impact! </p><p>Click the sign-up button below, and you'll be directed to a page where you can fill out the form.</p>"
+          }
+        },
+        "button_xDFJCc": {
+          "type": "button",
+          "settings": {
+            "button_label": "SIGN UP TODAY",
+            "button_link": "https://signup.linkshare.com/publishers/registration/landing?mid=47850",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7TwfwG",
+        "text_6dceJK",
+        "button_xDFJCc"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_iF4mgj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ga4MMi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Step_1.webp",
+            "title": "1. Register",
+            "text": "<p>Sign up by registering <a href=\"https://signup.linkshare.com/publishers/registration/landing?mid=47850\" title=\"https://signup.linkshare.com/publishers/registration/landing?mid=47850\">here</a>. Receive login instructions upon approval. Click the button to start.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wyWKAX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Step_2.webp",
+            "title": "2. Distribute",
+            "text": "<p>Find your exclusive affiliate link in the dashboard to track referrals. Copy and share it with anyone you choose!</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wdL4WW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Step_3.webp",
+            "title": "3. Track",
+            "text": "<p>Your link triggers browser cookies, crediting you for purchases within 45 days. Earn commissions on their every purchase without needing a new link.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jW4QWc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Step_4.webp",
+            "title": "4. Get Paid",
+            "text": "<p>Payments are sent on the 20th of each month via check or direct deposit. Track earnings, clicks, and referrals in your dashboard. </p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ga4MMi",
+        "column_wyWKAX",
+        "column_wdL4WW",
+        "column_jW4QWc"
+      ],
+      "custom_css": [
+        ".h1 {justify-content: center !important; text-align: center !important;}",
+        ".title-wrapper-with-link {justify-content: center;}"
+      ],
+      "settings": {
+        "title": "Follow These Steps:",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "GET STARTED",
+        "button_link": "https://signup.linkshare.com/publishers/registration/landing?mid=47850",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-0e6e5543-7679-477c-a489-d1c9878914e7",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_UhXVAp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3AaDV8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Converison.svg",
+            "title": "15-25% ON EACH CONVERSION",
+            "text": "<p>Maximize your commission with our sliding scale, ensuring quick earnings from every sale!</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cWagPt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Unlimited_-Referrals.svg",
+            "title": "UNLIMITED REFERRALS ",
+            "text": "<p>Go ahead, create abundance! Drive limitless traffic to the site, and you'll earn on every sale. No restrictions, just your success.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_agGNTW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/User-friendly_Interface.svg",
+            "title": "USER-FRIENDLY INTERFACE",
+            "text": "<p>Unlock essential tools at your fingertips. Navigate our user-friendly interface for optimized performance and gain insights for future growth goals.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6GfUrk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Promotional_-Tools.svg",
+            "title": "PROMOTIONAL TOOLS",
+            "text": "<p>Stay current with the latest designs, graphics, and shareable content for successful campaigns. Simply copy and paste—no graphic design skills required!<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_B7VmpL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Simple_Payments.svg",
+            "title": "SIMPLE PAYMENTS",
+            "text": "<p>Track payments in your Activity Details report. Payments sent on the 20th monthly can be received automatically via check or direct deposit.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3AaDV8",
+        "column_cWagPt",
+        "column_agGNTW",
+        "column_6GfUrk",
+        "column_B7VmpL"
+      ],
+      "custom_css": [
+        ".h1 {justify-content: center !important; text-align: center !important;}",
+        ".title-wrapper-with-link {justify-content: center;}",
+        ".multicolumn-list.slider,.multicolumn-list.grid--4-col-desktop {justify-content: center;}"
+      ],
+      "settings": {
+        "title": "What are the Benefits?",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-b108ec22-d902-4dc0-96ae-1b505af6444a",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_UARfF3",
+    "rich_text_3kyx8p",
+    "multicolumn_iF4mgj",
+    "multicolumn_UhXVAp"
+  ]
+}

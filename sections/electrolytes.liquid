@@ -1,0 +1,387 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+
+    <div class="video_reels__title title-wrapper center title-wrapper--no-top-margin">
+      {% if section.settings.caption != blank %}
+          <span class="caption {{ section.settings.text_style }} {{ section.settings.text_style }}--{{ section.settings.text_size }} {{ section.settings.text_style }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">{{ section.settings.caption }}</span>
+      {% endif %}
+      {%- if section.settings.title != blank -%}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+          </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+          <div class="video_reels__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.description -}}
+          </div>
+      {%- endif -%}
+    </div>
+
+    <div class="electrolytes__wrap">
+
+        {% assign total_blocks = section.blocks.size %}
+        {% assign half = total_blocks | divided_by: 2 %}
+
+        <!-- LEFT BLOCKS -->
+        <div class="electrolytes__row electrolytes__blocks">
+            {%- for block in section.blocks limit: half -%}
+            <div class="electrolytes__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <div class="electrolytes__item_inner">
+                {% if block.settings.title != blank %}
+                <h4 class="electrolytes__title">{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.content != blank %}
+                <div class="electrolytes__content">{{ block.settings.content }}</div>
+                {% endif %}
+              </div>
+            </div>
+            {%- endfor -%}
+        </div>
+
+        <!-- CENTER IMAGE -->
+        <div class="electrolytes__row electrolytes__image">
+            {% if section.settings.image != blank %}
+            <div class="electrolytes__image desktop_media">
+                <img src="{{ section.settings.image | img_url:'master' }}">
+            </div>
+            {% endif %}
+            {% if section.settings.mobile_image != blank %}
+            <div class="electrolytes__image mobile_media">
+                <img src="{{ section.settings.mobile_image | img_url:'master' }}">
+            </div>
+            {% endif %}
+
+        </div>
+
+         <!-- RIGHT BLOCKS -->
+        <div class="electrolytes__row electrolytes__blocks">
+            {%- for block in section.blocks offset: half -%}
+            <div class="electrolytes__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <div class="electrolytes__item_inner">
+                {% if block.settings.title != blank %}
+                <h4 class="electrolytes__title">{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.content != blank %}
+                <div class="electrolytes__content">{{ block.settings.content }}</div>
+                {% endif %}
+              </div>
+            </div>
+            {%- endfor -%}
+        </div>
+
+         <!-- BUTTON BLOCKS -->
+        <div class="electrolytes__row electrolytes__button center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {%- if section.settings.button_label != blank -%}
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ section.settings.button_link }}" {% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+                {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}
+            </a>
+            {%- endif -%}
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+#shopify-section-{{ section.id }} .gradient {
+  background: {{ section.settings.color_scheme.settings.background }} url({{ section.settings.bg_image | img_url:'master' }}) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+#shopify-section-{{ section.id }} .electrolytes__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+#shopify-section-{{ section.id }} .electrolytes__row {
+    display: flex;
+    justify-content: center;
+    gap: 87px;
+}
+#shopify-section-{{ section.id }} .electrolytes__item .electrolytes__title {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    margin: 0;
+}
+#shopify-section-{{ section.id }} .electrolytes__item .electrolytes__content * {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    margin: 0;
+}
+#shopify-section-{{ section.id }} .electrolytes__row.electrolytes__button {
+    margin-top: 40px;
+}
+#shopify-section-{{ section.id }} .electrolytes__row.electrolytes__blocks {
+    width: 800px;
+    justify-content: flex-start;
+}
+#shopify-section-{{ section.id }} .electrolytes__row.electrolytes__image + .electrolytes__blocks {
+    justify-content: center;
+}
+#shopify-section-{{ section.id }} .mobile_media {
+  display: none;
+}
+
+
+@media(max-width: 989px) {
+  #shopify-section-{{ section.id }} .electrolytes__row.electrolytes__blocks {
+    width: 600px;
+    justify-content: flex-start;
+  }
+
+}
+
+@media(max-width: 749px) {
+ #shopify-section-{{ section.id }} .desktop_media {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .mobile_media {
+    display: block;
+  }
+  #shopify-section-{{ section.id }} .electrolytes__row.electrolytes__blocks {
+    flex-direction: column-reverse;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10px;
+  }
+  #shopify-section-{{ section.id }} .electrolytes__row.electrolytes__blocks .electrolytes__item:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #shopify-section-{{ section.id }} .electrolytes__row.electrolytes__image {
+    margin: -80px 0;
+  }
+  #shopify-section-{{ section.id }} .electrolytes__item .electrolytes__title {
+    font-size: 16px;
+    line-height: normal;
+  }
+  #shopify-section-{{ section.id }} .electrolytes__item .electrolytes__content * {
+    font-size: 14px;
+    line-height: normal;
+  }
+  #shopify-section-{{ section.id }} .gradient {
+    background-position: left center;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Electrolytes",
+  "tag": "section",
+  "class": "section shopify-section--electrolytes",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "subtitle",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
+        }
+      ],
+      "default": "caption-with-letter-spacing",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+    },   
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Electrolyte",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-collection.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-collection.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.featured-collection.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-collection.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+      "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Electrolytes"
+    }
+  ]
+}
+{% endschema %}

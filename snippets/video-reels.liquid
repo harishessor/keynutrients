@@ -1,0 +1,175 @@
+<div class="video-reels-lists">
+    {% for video_reel in product.metafields.custom.video_reels.value %}
+        {% assign video_file = video_reel.video_file.value %}
+        {% assign video_thumb = video_reel.video_thumbnail | image_url: width: 100 %}
+        {% assign video_poster = video_reel.video_thumbnail | img_url: 'master' %}
+        {% assign video_title = video_reel.video_title %}
+
+        <div class="video-reel-item"> 
+            <a data-fancybox="reels" data-src="#video-{{ forloop.index0 }}" href="javascript:;" data-aspect-ratio="9 / 16">
+            <div class="video-reel-thumb"> 
+                <img src="{{ video_thumb }}"> 
+                <span class="play_icon"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22" fill="none"><path d="M18.75 10.8253L8.87767e-07 21.6506L1.83415e-06 -8.19588e-07L18.75 10.8253Z" fill="white"/></svg> 
+                </span> 
+            </div> 
+            <div class="video-reel-content"> 
+                <span class="video-title">{{ video_title }}</span> 
+            </div>
+            </a>
+            <div class="video_reel__popup" id="video-{{ forloop.index0 }}" style="display:none;">
+            {{ video_file | video_tag: loop: false, autoplay: false, controls: false,  webkit-playsinline: true, playsinline: true,  poster: video_poster, class: 'reel_poster', muted: false, data-aspect-ratio:"9 / 16" }}
+            <div class="video_overlay">
+                <span class="reel_play"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="39" viewBox="0 0 34 39" fill="none"><path d="M33.75 19.4856L1.97945e-06 38.9712L3.68293e-06 2.33203e-05L33.75 19.4856Z" fill="white"/></svg></span>
+                <span class="reel_mute">
+                <svg class="icon_mute" fill="#fff" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: none;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;}</style></defs><title>volume--mute--filled</title><polygon points="31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41"></polygon><path d="M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z"></path><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"></rect></g></svg>
+                <svg class="icon_unmute" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="display: block;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-3{fill:#fff;}.cls-4{fill:none;}</style></defs><title>volume--up--filled</title><path d="M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z"></path><path d="M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z"></path><path class="cls-3" d="M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z"></path><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-4" width="32" height="32"></rect></g></svg>
+                </span>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+    #shopify-section-{{ section.id }} .video-reels-lists {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+    #shopify-section-{{ section.id }} .video-reel-item a {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-decoration: none;
+    }
+    #shopify-section-{{ section.id }} .video-reel-thumb {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        overflow: hidden;
+        border: 5px solid #fff;
+        cursor: pointer;    
+        outline: 2px solid #0E1D30;
+    }  
+    #shopify-section-{{ section.id }} .video-reel-thumb:hover img { 
+        transform: scale(1.1); 
+    }
+    #shopify-section-{{ section.id }} .video-reel-thumb img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: transform 0.3s ease;
+    }
+    #shopify-section-{{ section.id }} .play_icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #shopify-section-{{ section.id }} .video-reel-content .video-title {
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: #0E1D30;
+    }
+    #shopify-section-{{ section.id }} .video-reel-item a:focus-visible {
+        outline: none;
+    }
+    .video_reel__popup {
+        padding: 0;
+        max-width: 380px;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+    .video_reel__popup .is-close-button {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    .reel_play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .reel_mute {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    .reel_mute svg {
+        fill: #fff;
+    }
+    .fancybox__backdrop {
+        background: rgb(24 24 27 / 70%);
+    }
+    .is-horizontal.is-ltr .f-button.is-arrow.is-prev {
+        left: calc(50% - 290px);
+    }
+    .is-horizontal.is-ltr .f-button.is-arrow.is-next {
+        right: calc(50% - 290px);
+    }
+    .video_reel__popup video.popup-video {
+        width: 100%;
+    }
+    .fancybox__carousel {
+        {% comment %} flex: none; {% endcomment %}
+    }
+    .f-thumbs.is-modern .f-thumbs__slide {
+        --clip-shift: inherit;
+        --clip-path: inherit;
+        padding: 0;
+        overflow: visible;
+        left: inherit;
+        will-change: inherit;
+    }
+    .f-thumbs.is-modern .f-thumbs__slide button {
+        display: block;
+        margin-inline: inherit;
+        width: inherit;
+        clip-path: inherit;
+        background: #B2B2B2;
+        border-radius: 100%;
+    }
+    .f-thumbs.is-modern .f-thumbs__slide.is-selected button {
+        background: #ffffff;
+    }
+    .f-thumbs__slide {
+        height: 7px;
+        width: 7px;
+    }
+    .f-thumbs.is-modern .f-thumbs__viewport {
+        display: flex;
+    }
+    .f-thumbs.is-modern .f-thumbs__slide button img {
+        display: none;
+    }
+    .fancybox__thumbs {
+        display: none;
+    }
+    video.reel_poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>

@@ -1,0 +1,534 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.5);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 1);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+    <div class="us-vs-them__wrap">
+        <div class="us-vs-them__content">
+
+            {% if section.settings.caption != blank %}
+            <p class="us-vs-them__caption {{ section.settings.caption_text_style }} {{ section.settings.caption_text_style }}--{{ section.settings.text_size }} {{ section.settings.caption_text_style }}">
+                {{ section.settings.caption }}
+            </p>
+            {% endif %}
+
+            {% if section.settings.heading != blank %}
+            <h2 class="us-vs-them__heading inline-richtext {{ section.settings.heading_size }}">
+                {{ section.settings.heading }}
+            </h2>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+            <div class="us-vs-them__text rte {{ section.settings.text_style }}">
+                {{ section.settings.text }}
+            </div>
+            {% endif %}
+
+            {%- if section.settings.button_label != blank -%}
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ section.settings.button_link }}" {% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+                {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}
+            </a>
+            {%- endif -%}
+
+        </div>
+        <div class="us-vs-them__video_content">
+            <div class="us-vs-them__video">
+              {% if section.settings.video != blank %}
+              <div class="key__video_wrap">
+                {% assign poster = section.settings.video_poster | img_url: 'master' %}
+                {{ section.settings.video | video_tag: loop: true, autoplay: true, playsinline: true, webkit-playsinline: true, muted: true, controls: false, poster: poster, class: 'key__video desktop_video' }}
+
+                {% assign mobile_poster = section.settings.mobile_video_poster | img_url: 'master' %}
+                {{ section.settings.mobile_video | video_tag: loop: true, autoplay: true, playsinline: true, webkit-playsinline: true, muted: true, controls: false, poster: mobile_poster, class: 'key__video mobile_video' }}
+              </div>
+              {% endif %}
+              {% if section.settings.video_caption != blank %}
+              <span class="video_caption">{{ section.settings.video_caption }}</span>
+              {% endif %}
+            </div>
+            <div class="us-vs-them__video_points">
+              {% if section.settings.right_title != blank %}
+              <div class="us-vs-them__title h4">
+                {{ section.settings.right_title }}
+              </div>
+              {% endif %}
+              <div class="us-vs-them__key-points">
+                {%- for block in section.blocks -%}
+                <div class="key-point__item">
+                  {% if block.settings.value != blank %}
+                  <span class="key_value">{{ block.settings.value }}</span>
+                  {% endif %}
+                  {% if block.settings.lable != blank %}
+                  <span class="key_lable">{{ block.settings.lable }}</span>
+                  {% endif %}
+                </div>
+                {%- endfor -%}
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+#shopify-section-{{ section.id }} .us-vs-them__wrap {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+    justify-content: space-between;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content {
+    display: flex;
+    align-items: center;
+    width: calc(60% - 45px/2);
+}
+#shopify-section-{{ section.id }} .us-vs-them__content {
+    width: calc(40% - 45px/2);
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__video,
+#shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__video_points {
+    width: 50%;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 150%;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap .key__video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap .mobile_video {
+  display: none;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .video_caption {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    margin-top: 10px;
+    display: block;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__video_points {
+    padding: 40px;
+    margin-top: -25px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__title {
+    color: #D4D4D4;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+    margin-bottom: 55px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 27px;
+    row-gap: 20px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item {
+  width: calc(50% - 27px/2);
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item .key_value {
+    color: #D4D4D4;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 5px;
+    display: block;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item .key_lable {
+    color: #D4D4D4;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child .key_value {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 600;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child .key_lable {
+    font-size: 12px;
+    line-height: 26px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:last-child {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:last-child .key_value {
+    font-size: 20px;
+    line-height: 30px;
+}
+#shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:last-child .key_lable {
+    font-size: 12px;
+    line-height: normal;
+}
+#shopify-section-{{ section.id }} .us-vs-them__content .us-vs-them__heading {
+    margin: 0 0 15px;
+    line-height: 115%;
+}
+#shopify-section-{{ section.id }} .us-vs-them__content .us-vs-them__text {
+    margin-bottom: 35px;
+}
+
+
+@media(max-width: 999px){
+  #shopify-section-{{ section.id }} .us-vs-them__wrap {
+    gap: 25px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content {
+    width: calc(60% - 25px/2);
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__content {
+    width: calc(40% - 25px/2);
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__video_points {
+    padding: 55px 0px 20px 20px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 5px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item {
+    width: calc(50% - 10px / 2);
+  }
+  #shopify-section-{{ section.id }} .h0 {
+    font-size: calc(var(--font-heading-scale) * 3.8rem);
+  }
+  #shopify-section-{{ section.id }} .subtitle {
+    font-size: 1.6rem;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item .key_value {
+    font-size: 1.6rem;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child .key_value {
+    font-size: 24px;
+  }
+
+}
+@media(max-width: 749px) {
+  #shopify-section-{{ section.id }} .us-vs-them__wrap {
+    gap: 40px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__wrap {
+    flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content {
+    width: 100%;    
+    align-items: stretch;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__content {
+    width: 100%;
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap {
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item {
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points {
+    row-gap: 10px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item .key_value {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__video_points {
+    padding-right: 0;
+  }
+  #shopify-section-{{ section.id }} .h0 {
+    font-size: calc(var(--font-heading-scale) * 2.8rem);
+  } 
+  #shopify-section-{{ section.id }} .subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child .key_value {
+    font-size: 20px;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .video_caption {
+    font-size: 13px;
+    line-height: normal;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .us-vs-them__title {
+    font-size: 20px;
+    line-height: normal;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap .mobile_video {
+    display: block;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__video_content .key__video_wrap .desktop_video {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .us-vs-them__key-points .key-point__item:first-child {
+    margin-bottom: 0;
+  }
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Us vs Them",
+  "tag": "section",
+  "class": "section shopify-section--us-vs-them",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "caption_text_style",
+      "options": [
+        {
+          "value": "subtitle",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
+        }
+      ],
+      "default": "caption-with-letter-spacing",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
+      "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "t:sections.image-with-text.blocks.text.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__2.label"
+        }
+      ],
+      "default": "body",
+      "label": "t:sections.image-with-text.blocks.text.settings.text_style.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+      "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Video Content"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Video Poster"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Video Content"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_video_poster",
+      "label": "Video Poster"
+    },
+    {
+      "type": "text",
+      "id": "video_caption",
+      "label": "Video Caption"
+    },
+    {
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right Title"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "key-point",
+      "name": "Key Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "lable",
+          "label": "Lable"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Us vs Them"
+    }
+  ]
+}
+{% endschema %}

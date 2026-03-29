@@ -1,0 +1,119 @@
+<div class="customer-reviews__slider swiper-container">
+    <div class="swiper-wrapper">
+
+        {% for review in product.metafields.custom.customer_review_blocks.value %}
+        <div class="swiper-slide">
+            <div class="review_slide">
+                <div class="review_stars">
+                    <svg width="78" height="16" viewBox="0 0 78 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#1560BD"/>
+                        <path d="M23.5 0L25.1839 5.52786H30.6329L26.2245 8.94427L27.9084 14.4721L23.5 11.0557L19.0916 14.4721L20.7755 8.94427L16.3671 5.52786H21.8161L23.5 0Z" fill="#1560BD"/>
+                        <path d="M39 0L40.7961 5.52786H46.6085L41.9062 8.94427L43.7023 14.4721L39 11.0557L34.2977 14.4721L36.0938 8.94427L31.3915 5.52786H37.2039L39 0Z" fill="#1560BD"/>
+                        <path d="M54.5 0L56.1839 5.52786H61.6329L57.2245 8.94427L58.9084 14.4721L54.5 11.0557L50.0916 14.4721L51.7755 8.94427L47.3671 5.52786H52.8161L54.5 0Z" fill="#1560BD"/>
+                        <path d="M70 0L71.7961 5.52786H77.6085L72.9062 8.94427L74.7023 14.4721L70 11.0557L65.2977 14.4721L67.0938 8.94427L62.3915 5.52786H68.2039L70 0Z" fill="#1560BD"/>
+                    </svg>
+                </div>
+                <div class="h4">{{ review.review_title }}</div>
+                <div class="rte">
+                    {{ review.review_content | metafield_tag }}
+                </div>
+                <div class="author_wrapper">
+                    <span class="author">{{ review.review_author }}</span>
+                    <span class="verified_author">Verified Buyer <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.14545 11L3.10909 9.32381L1.14545 8.90476L1.33636 6.96667L0 5.5L1.33636 4.03333L1.14545 2.09524L3.10909 1.67619L4.14545 0L6 0.759524L7.85455 0L8.89091 1.67619L10.8545 2.09524L10.6636 4.03333L12 5.5L10.6636 6.96667L10.8545 8.90476L8.89091 9.32381L7.85455 11L6 10.2405L4.14545 11ZM5.42725 7.35954L8.50909 4.4L7.74545 3.64046L5.42725 5.86667L4.25455 4.76667L3.49091 5.5L5.42725 7.35954Z" fill="#5CB83B"/></svg></span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+<button class="swiper--nav review-swiper--prev">
+    <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.86667 4L4.93333 0.933333L4 -1.74846e-07L0 4L4 8L4.93333 7.06667L1.86667 4Z" fill="#fff"/></svg>
+</button>
+<button class="swiper--nav review-swiper--next">
+    <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.06693 4L0.000260353 0.933333L0.933594 -1.74846e-07L4.93359 4L0.933594 8L0.000260353 7.06667L3.06693 4Z" fill="#fff"/></svg>
+</button>
+
+
+
+<style>
+    #shopify-section-{{ section.id }} .customer-reviews__slider .review_slide {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        margin: 15px;
+        border-radius: 7px;
+        border: 1px solid #0E1D30;
+        background: #F0F8FF;
+    }
+    #shopify-section-{{ section.id }} .customer-reviews__slider .review_slide p {
+        margin: 0;
+    }
+    #shopify-section-{{ section.id }} .product-info__customer-reviews {
+        position: relative;
+        padding: 0 50px;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+    #shopify-section-{{ section.id }} .product-info__customer-reviews .swiper--nav {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0E1D30;
+        width: 34px;
+        height: 34px;
+        z-index: 1;
+        border-radius: 100%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #shopify-section-{{ section.id }} .product-info__customer-reviews .review-swiper--next {
+        left: auto;
+        right: 10px;
+    }
+    #shopify-section-{{ section.id }} .product-info__customer-reviews .swiper--nav svg {
+        width: 12px;
+        height: 12px;
+    }
+    #shopify-section-{{ section.id }} .review_slide .h4 {
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+    }
+    #shopify-section-{{ section.id }} .review_slide .rte {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 21px;
+    }
+    #shopify-section-{{ section.id }} .review_slide .author_wrapper {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .review_slide .author_wrapper .verified_author {
+        color: #5CB83B;
+    }
+
+    @media(max-width: 699px){
+        #shopify-section-{{ section.id }} .product-info__customer-reviews {
+            padding: 0;
+        }
+        #shopify-section-{{ section.id }} .product-info__customer-reviews .swiper--nav { 
+            left: -10px;
+        }
+        #shopify-section-{{ section.id }} .product-info__customer-reviews .review-swiper--next {
+            left: auto;
+            right: -10px;
+        }
+    }
+</style>

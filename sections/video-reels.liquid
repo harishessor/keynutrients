@@ -1,0 +1,407 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.5);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.5);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+
+    <div class="video_reels__title title-wrapper center title-wrapper--no-top-margin">
+        {% if section.settings.caption != blank %}
+            <span class="caption {{ section.settings.text_style }} {{ section.settings.text_style }}--{{ section.settings.text_size }} {{ section.settings.text_style }}">{{ section.settings.caption }}</span>
+        {% endif %}
+        {%- if section.settings.title != blank -%}
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.title }}
+            </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+            <div class="video_reels__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                {{ section.settings.description -}}
+            </div>
+        {%- endif -%}
+    </div>
+
+    <div class="video_reels__slider swiper-container">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+        <div class="video_reel swiper-slide">
+            {%- liquid
+            assign loading_strategy = nil
+    
+            if section.index > 3 or forloop.index > 3
+                assign loading_strategy = 'lazy'
+            endif
+            -%}
+
+            {%- if block.settings.video != blank -%}
+            <div class="video_reel_wrapper">
+                {% if block.settings.video != blank %}              
+                {% assign poster = block.settings.poster_image | img_url: 'master' %}
+                {{ block.settings.video | video_tag: loop: true, autoplay: false, playsinline: true, webkit-playsinline: true, muted: false, controls: false, poster: poster, class: 'reel_video' }}
+                {% endif %}
+                <!-- Play/pause Button -->
+                <div class="video__buttons">
+                    <span class="mute__btn">
+                        <svg class="video_icon icon_mute" fill="#fff" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;}</style></defs><title>volume--mute--filled</title><polygon points="31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41"></polygon><path d="M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z"></path><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"></rect></g></svg>
+                        <svg class="video_icon icon_unmute" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-3{fill:#fff;}.cls-4{fill:none;}</style></defs><title>volume--up--filled</title><path d="M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z"></path><path d="M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z"></path><path class="cls-3" d="M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z"></path><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-4" width="32" height="32"></rect></g></svg>
+                    </span>
+                    <span class="play__btn">
+                        <svg class="video_icon icon_play" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.286 3.407A1.5 1.5 0 0 0 6 4.684v14.632a1.5 1.5 0 0 0 2.286 1.277l11.888-7.316a1.5 1.5 0 0 0 0-2.555L8.286 3.407z" fill="#fff"></path></g></svg>
+                        <svg class="video_icon icon_pause" fill="#fff" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-c</title><path d="M208,432H160a16,16,0,0,1-16-16V96a16,16,0,0,1,16-16h48a16,16,0,0,1,16,16V416A16,16,0,0,1,208,432Z"></path><path d="M352,432H304a16,16,0,0,1-16-16V96a16,16,0,0,1,16-16h48a16,16,0,0,1,16,16V416A16,16,0,0,1,352,432Z"></path></g></svg>
+                    </span>
+                </div>
+            </div>
+            {%- endif -%}
+
+            {% assign product = block.settings.product %}
+            {% if product != blank %}
+            <div class="video_reel__info">
+                <a class="hidden_link" href="{{ product.url }}">&nbsp;</a>
+                <div class="reel_pro_img">
+                  <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}">
+                </div>
+                <div class="reel_pro_info">
+                  <h4 class="reel_pro_title">{{ product.title }}</h4>
+                  <div class="reel_pro_price">
+                    {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+                  </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!--Swiper Navigation-->
+    <div class="swiper_buttons">
+        <div class="swiper_btn reel--prev">
+            <svg width="42" height="22" viewBox="0 0 42 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6227 2.12109L2.1215 10.6199L10.6227 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M3.57591 10.6196H40.0554" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
+        </div>
+        <div class="swiper_btn reel--next">
+            <svg width="42" height="22" viewBox="0 0 42 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+#shopify-section-{{ section.id }} .video_reels__slider .video_reel {
+    width: calc(25% - 15px * 3 / 4);
+    margin: 35px 0;
+    transition: all 0.3s ease-in-out;
+}
+#shopify-section-{{ section.id }} .video_reels__slider .video_reel.swiper-slide-active {
+    margin: 0;
+}
+#shopify-section-{{ section.id }} .video_reels__slider .video_reel.swiper-slide-active .video_reel_wrapper {
+    padding-bottom: calc(135% + 70px);
+}
+#shopify-section-{{ section.id }} .video_reels__slider .video_reel_wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 135%;
+    transition: all 0.3s ease-in-out;
+}
+#shopify-section-{{ section.id }} .video_reels__slider .video_reel_wrapper video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .video__buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .play__btn, 
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .mute__btn {
+    width: 40px;
+    height: 40px;
+    background: #00000061;
+    padding: 10px;
+    border-radius: 100%;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .video_icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .icon_unmute {
+    display: none;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .icon_pause {
+    display: none;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel__info {
+    border: 1px solid #0E1D30;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    position: relative;
+}
+#shopify-section-{{ section.id }} .video_reel .video_reel__info a.hidden_link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+#shopify-section-{{ section.id }} .video_reel .reel_pro_img {
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+}
+#shopify-section-{{ section.id }} .video_reel .reel_pro_img img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+#shopify-section-{{ section.id }} .video_reel .reel_pro_info {
+    flex: auto;
+}
+#shopify-section-{{ section.id }} .video_reel .reel_pro_info .reel_pro_title {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;    
+    height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+#shopify-section-{{ section.id }} .video_reel .reel_pro_info .reel_pro_price {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+}
+#shopify-section-{{ section.id }} .swiper_buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 40px;
+}
+#shopify-section-{{ section.id }} .swiper_buttons .swiper_btn {
+    cursor: pointer;
+}
+#shopify-section-{{ section.id }} .swiper_buttons .swiper_btn svg {
+    display: block;
+}
+#shopify-section-{{ section.id }} .swiper_buttons .swiper_btn.swiper-button-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+@media(max-width: 999px) {
+  #shopify-section-{{ section.id }} .h0 {
+    font-size: calc(var(--font-heading-scale) * 3.8rem);
+  }
+}
+
+@media(max-width: 749px) {
+  #shopify-section-{{ section.id }} .h0 {
+    font-size: calc(var(--font-heading-scale) * 2.8rem);
+  }
+  #shopify-section-{{ section.id }} .swiper_buttons {
+    margin-top: 20px;
+  }
+  #shopify-section-{{ section.id }} .video_reel .reel_pro_info .reel_pro_title {
+    height: auto;
+  }
+  #shopify-section-{{ section.id }} .video_reels__slider {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+  #shopify-section-{{ section.id }} .swiper_buttons .swiper_btn svg {
+    display: block;
+    max-width: 30px;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Video Reels",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "subtitle",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
+        }
+      ],
+      "default": "caption-with-letter-spacing",
+      "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Video Reels",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster Image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Reels"
+    }
+  ]
+}
+{% endschema %}

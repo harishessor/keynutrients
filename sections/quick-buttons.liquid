@@ -1,0 +1,86 @@
+<div class="mobile-buttons-section">
+  <div class="mobile-buttons-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+        <a href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<style>
+@media (min-width: 750px) {
+  .mobile-buttons-section {
+    display: none;
+  }
+}
+.mobile-buttons-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #ffffff;
+}
+.mobile-buttons-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.mobile-buttons-wrapper a {
+  display: inline-block;
+  padding: 7px 12px;
+  background: #ffffff;
+  border: 1px solid #0e1d30;
+  color: #0e1d30;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  align-items: center;
+  box-shadow: none;
+  text-transform: uppercase;
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Quick Buttons",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Add up to 12 buttons"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quick Buttons",
+      "blocks": [
+        {"type": "button"},
+        {"type": "button"},
+        {"type": "button"}
+      ]
+    }
+  ]
+}
+{% endschema %}

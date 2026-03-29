@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE shipping for new customers—automatically applied at checkout!",
+            "link": ""
+          }
+        },
+        "announcement_6JychM": {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE shipping for new customers—automatically applied at checkout!",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "announcement_6JychM"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "color_scheme_drawer": "scheme-2",
+        "show_line_separator": false,
+        "title": "Offers",
+        "offer1_title": "",
+        "offer1_text": "",
+        "offer1_btn_text": "Shop Now",
+        "offer1_btn_link": "#",
+        "offer2_title": "",
+        "offer2_text": "",
+        "offer2_btn_text": "Shop Now",
+        "offer2_btn_link": "#",
+        "offer3_title": "",
+        "offer3_text": "",
+        "offer3_btn_text": "Shop Now",
+        "offer3_btn_link": "#",
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_TCrEYb": {
+          "type": "mega-menu",
+          "disabled": true,
+          "settings": {
+            "menu_title": "Shop All",
+            "megamenu__image1": "shopify://shop_images/flavors_-_pink_lemonade.png",
+            "megamenu__image1_title": "Pink Lemonade",
+            "megamenu__image1_link": "shopify://products/electrolyte-recovery-plus",
+            "megamenu__image2": "shopify://shop_images/flavors_-_peach_mango.png",
+            "megamenu__image2_title": "Peach Mango",
+            "megamenu__image2_link": "shopify://products/peach-mango-lover",
+            "megamenu__image3_title": "",
+            "megamenu__image3_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_TCrEYb"
+      ],
+      "settings": {
+        "logo_position": "middle-center",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "secondary_menu": "",
+        "menu_type_desktop": "split-menu",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "highlight_menu": "Subscribe & Save 20%",
+        "highlight_menu_color": "#1560bd",
+        "secondary_highlight_menu": "Best Sellers",
+        "secondary_highlight_menu_color": "#1560bd",
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": false,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
