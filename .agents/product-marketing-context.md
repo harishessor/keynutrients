@@ -133,4 +133,4 @@
 
 - **Canonical domain:** `https://www.keynutrients.com` (verify DNS/canonical in Search Console).
 - **Entity focus for AEO:** Brand **Key Nutrients**; topical anchors **electrolytes**, **hydration supplements**, **dietary supplements**; product-level facts on PDPs (ingredients, format, use) for extractability.
-- **Structured data:** Organization + WebSite JSON-LD inlined in `layout/theme.liquid`; Product via Shopify `structured_data`; optional FAQPage from PDP accordions in `sections/main-product.liquid` when Q&A exist.
+- **Structured data:** Organization + WebSite via `snippets/json-ld-brand.liquid` (rendered from `layout/theme.liquid`); Product via Shopify `structured_data`; optional FAQPage via `snippets/json-ld-product-faq.liquid` on PDP. Deploy **snippets** with the layout when publishing the theme.
