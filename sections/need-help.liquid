@@ -19,9 +19,35 @@
 
             {% if section.settings.image != blank %}
             <div class="need_help__image">
-                <img class="desktop_media" src="{{ section.settings.image | img_url:'master' }}">
+                {%- assign nh_desktop_h = section.settings.image.width
+                  | divided_by: section.settings.image.aspect_ratio
+                -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 2000
+                  | image_tag:
+                    class: 'desktop_media',
+                    width: section.settings.image.width,
+                    height: nh_desktop_h,
+                    sizes: '(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, 100vw',
+                    widths: '375, 550, 750, 1100, 1500, 2000',
+                    loading: 'lazy'
+                }}
                 {% if section.settings.mobile_image != blank %}
-                  <img class="mobile_media" src="{{ section.settings.mobile_image | img_url:'master' }}">
+                  {%- assign nh_mobile_h = section.settings.mobile_image.width
+                    | divided_by: section.settings.mobile_image.aspect_ratio
+                  -%}
+                  {{
+                    section.settings.mobile_image
+                    | image_url: width: 1500
+                    | image_tag:
+                      class: 'mobile_media',
+                      width: section.settings.mobile_image.width,
+                      height: nh_mobile_h,
+                      sizes: '100vw',
+                      widths: '375, 550, 750, 1100, 1500',
+                      loading: 'lazy'
+                  }}
                 {% endif %}
             </div>
             {% endif %}
@@ -46,7 +72,7 @@
                     <a class="underlined-link uppercase large-up-hide" href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }}</a>
                 </div>
                 {% endif %}
-            </div>           
+            </div>
 
         </div>
     </div>
@@ -92,7 +118,7 @@
 
 @media(max-width: 1099px) {
   #shopify-section-{{ section.id }} .need_help__content {
-    flex-direction: column;    
+    flex-direction: column;
     align-items: flex-start;
   }
 }
@@ -132,7 +158,7 @@
     gap: 20px;
     align-items: center;
   }
-  
+
 }
 </style>
 
@@ -152,11 +178,11 @@
       "type": "image_picker",
       "id": "mobile_image",
       "label": "Mobile Image"
-    },     
+    },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",

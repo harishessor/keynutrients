@@ -55,13 +55,37 @@
         <!-- CENTER IMAGE -->
         <div class="electrolytes__row electrolytes__image">
             {% if section.settings.image != blank %}
+            {%- assign el_desktop_h = section.settings.image.width
+              | divided_by: section.settings.image.aspect_ratio
+            -%}
             <div class="electrolytes__image desktop_media">
-                <img src="{{ section.settings.image | img_url:'master' }}">
+                {{
+                  section.settings.image
+                  | image_url: width: 2000
+                  | image_tag:
+                    width: section.settings.image.width,
+                    height: el_desktop_h,
+                    sizes: '(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, 100vw',
+                    widths: '375, 550, 750, 1100, 1500, 2000',
+                    loading: 'lazy'
+                }}
             </div>
             {% endif %}
             {% if section.settings.mobile_image != blank %}
+            {%- assign el_mobile_h = section.settings.mobile_image.width
+              | divided_by: section.settings.mobile_image.aspect_ratio
+            -%}
             <div class="electrolytes__image mobile_media">
-                <img src="{{ section.settings.mobile_image | img_url:'master' }}">
+                {{
+                  section.settings.mobile_image
+                  | image_url: width: 1500
+                  | image_tag:
+                    width: section.settings.mobile_image.width,
+                    height: el_mobile_h,
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500',
+                    loading: 'lazy'
+                }}
             </div>
             {% endif %}
 
@@ -251,7 +275,7 @@
       ],
       "default": "medium",
       "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",

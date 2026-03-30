@@ -49,6 +49,10 @@
   if section.index == 1
     assign fetch_priority = 'high'
   endif
+  assign hero_loading = 'lazy'
+  if section.index == 1
+    assign hero_loading = 'eager'
+  endif
 -%}
 
 <div
@@ -82,6 +86,14 @@
         else
           assign mobileBannerClass = ''
         endif
+        assign banner_desktop_classes = image_class | default: '' | strip
+        if desktopBannerClass != blank
+          assign banner_desktop_classes = banner_desktop_classes | append: ' ' | append: desktopBannerClass | strip
+        endif
+        assign banner_mobile_classes = image_class | default: '' | strip
+        if mobileBannerClass != blank
+          assign banner_mobile_classes = banner_mobile_classes | append: ' ' | append: mobileBannerClass | strip
+        endif
       %}
       {{
         section.settings.image
@@ -89,24 +101,27 @@
         | image_tag:
           width: section.settings.image.width,
           height: image_height,
-          class: image_class,
+          class: banner_desktop_classes,
           sizes: sizes,
           widths: widths,
           fetchpriority: fetch_priority,
-          class: desktopBannerClass
+          loading: hero_loading
       }}
       {% if section.settings.mobile_image != blank %}
+        {%- assign mobile_hero_h = section.settings.mobile_image.width
+          | divided_by: section.settings.mobile_image.aspect_ratio
+        -%}
         {{
           section.settings.mobile_image
           | image_url: width: 3840
           | image_tag:
             width: section.settings.mobile_image.width,
-            height: image_height,
-            class: image_class,
+            height: mobile_hero_h,
+            class: banner_mobile_classes,
             sizes: sizes,
             widths: widths,
             fetchpriority: fetch_priority,
-            class: mobileBannerClass
+            loading: hero_loading
         }}
       {% endif %}
     </div>
@@ -142,6 +157,14 @@
         else
           assign mobileBannerClass = ''
         endif
+        assign banner2_desktop_classes = image_class_2 | default: '' | strip
+        if desktopBannerClass != blank
+          assign banner2_desktop_classes = banner2_desktop_classes | append: ' ' | append: desktopBannerClass | strip
+        endif
+        assign banner2_mobile_classes = image_class_2 | default: '' | strip
+        if mobileBannerClass != blank
+          assign banner2_mobile_classes = banner2_mobile_classes | append: ' ' | append: mobileBannerClass | strip
+        endif
       %}
       {{
         section.settings.image_2
@@ -149,24 +172,29 @@
         | image_tag:
           width: section.settings.image_2.width,
           height: image_height_2,
-          class: image_class_2,
+          class: banner2_desktop_classes,
           sizes: sizes,
           widths: widths,
           fetchpriority: fetch_priority,
-          class: desktopBannerClass
+          loading: hero_loading
       }}
-      {{
-        section.settings.mobile_image_2
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.mobile_image_2.width,
-          height: image_height_2,
-          class: image_class_2,
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority,
-          class: mobileBannerClass
-      }}
+      {% if section.settings.mobile_image_2 != blank %}
+        {%- assign image_height_2_mobile = section.settings.mobile_image_2.width
+          | divided_by: section.settings.mobile_image_2.aspect_ratio
+        -%}
+        {{
+          section.settings.mobile_image_2
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.mobile_image_2.width,
+            height: image_height_2_mobile,
+            class: banner2_mobile_classes,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority,
+            loading: hero_loading
+        }}
+      {% endif %}
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -409,7 +437,7 @@
       "id": "stack_images_on_mobile",
       "default": true,
       "label": "t:sections.image-banner.settings.stack_images_on_mobile.label"
-    },    
+    },
     {
       "type": "select",
       "id": "mobile_content_alignment",

@@ -18,16 +18,29 @@
     <div class="section-{{ section.id }}-padding">
         <div class="marquee">
             {%- for i in (1..10) -%}
-                <div class="marquee_wrap">        
+                <div class="marquee_wrap">
                     {%- for block in section.blocks -%}
                         <div class="marquee_item">
                             {% if block.settings.icon != blank %}
-                                <img class="marquee_icon" src="{{ block.settings.icon | img_url:'master' }}">
+                                {%- assign icon_h = block.settings.icon.width
+                                  | divided_by: block.settings.icon.aspect_ratio
+                                -%}
+                                {{
+                                  block.settings.icon
+                                  | image_url: width: 120
+                                  | image_tag:
+                                    class: 'marquee_icon',
+                                    width: block.settings.icon.width,
+                                    height: icon_h,
+                                    sizes: '32px',
+                                    widths: '32, 64, 96, 120',
+                                    loading: 'lazy'
+                                }}
                             {% endif %}
                             {% if block.settings.text != blank %}
                                 <div class="marquee_text" style="white-space: nowrap;">{{ block.settings.text }}</div>
                             {% endif %}
-                        </div>                        
+                        </div>
                     {%- endfor -%}
                 </div>
             {%- endfor -%}

@@ -68,7 +68,12 @@
           {{
             poster
             | image_url: width: 3840
-            | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
+            | image_tag:
+              sizes: sizes,
+              widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+              alt: alt,
+              width: poster.width,
+              height: poster.height
           }}
         {%- else -%}
           {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
@@ -91,6 +96,8 @@
             <iframe
               src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
               class="js-youtube"
+              width="1280"
+              height="720"
               allow="autoplay; encrypted-media"
               allowfullscreen
               title="{{ section.settings.description | escape }}"
@@ -99,6 +106,8 @@
             <iframe
               src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
               class="js-vimeo"
+              width="1280"
+              height="720"
               allow="autoplay; encrypted-media"
               allowfullscreen
               title="{{ section.settings.description | escape }}"

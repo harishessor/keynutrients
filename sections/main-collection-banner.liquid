@@ -1,4 +1,12 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{%- liquid
+  assign collection_img_loading = 'lazy'
+  assign collection_img_fetchpriority = 'auto'
+  if section.index == 1
+    assign collection_img_loading = 'eager'
+    assign collection_img_fetchpriority = 'high'
+  endif
+-%}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
@@ -39,6 +47,8 @@
           alt="{{ collection.image.alt | escape }}"
           width="{{ collection.image.width }}"
           height="{{ collection.image.height }}"
+          loading="{{ collection_img_loading }}"
+          fetchpriority="{{ collection_img_fetchpriority }}"
         >
       </div>
     {%- endif -%}

@@ -36,16 +36,15 @@
         {%- for block in section.blocks -%}
         <div class="video_reel swiper-slide">
             {%- liquid
-            assign loading_strategy = nil
-    
-            if section.index > 3 or forloop.index > 3
-                assign loading_strategy = 'lazy'
-            endif
+              assign loading_strategy = 'lazy'
+              if section.index <= 3 and forloop.index <= 3
+                assign loading_strategy = 'eager'
+              endif
             -%}
 
             {%- if block.settings.video != blank -%}
             <div class="video_reel_wrapper">
-                {% if block.settings.video != blank %}              
+                {% if block.settings.video != blank %}
                 {% assign poster = block.settings.poster_image | img_url: 'master' %}
                 {{ block.settings.video | video_tag: loop: true, autoplay: false, playsinline: true, webkit-playsinline: true, muted: false, controls: false, poster: poster, class: 'reel_video' }}
                 {% endif %}
@@ -68,7 +67,17 @@
             <div class="video_reel__info">
                 <a class="hidden_link" href="{{ product.url }}">&nbsp;</a>
                 <div class="reel_pro_img">
-                  <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}">
+                  {{
+                    product.featured_image
+                    | image_url: width: 800
+                    | image_tag:
+                      alt: product.title,
+                      width: product.featured_image.width,
+                      height: product.featured_image.height,
+                      sizes: '120px',
+                      widths: '120, 240, 360, 480, 800',
+                      loading: loading_strategy
+                  }}
                 </div>
                 <div class="reel_pro_info">
                   <h4 class="reel_pro_title">{{ product.title }}</h4>
@@ -133,7 +142,7 @@
     padding: 15px;
     align-items: center;
 }
-#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .play__btn, 
+#shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .play__btn,
 #shopify-section-{{ section.id }} .video_reel .video_reel_wrapper .mute__btn {
     width: 40px;
     height: 40px;
@@ -196,7 +205,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 0;    
+    margin: 0;
     height: 36px;
     overflow: hidden;
     text-overflow: ellipsis;

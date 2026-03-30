@@ -30,15 +30,15 @@
 
     {% render 'meta-tags' %}
 
-    <script async type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js" defer="defer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js" defer></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>    
+    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -260,8 +260,20 @@
       }
     {% endstyle %}
 
-    {{ 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css' | stylesheet_tag }}  
-    {{ 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css' | stylesheet_tag }}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <noscript>{{ 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css' | stylesheet_tag }}</noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <noscript>{{ 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css' | stylesheet_tag }}</noscript>
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
@@ -303,7 +315,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-                 <script src="{{ 'skio-cart-upsell.js' | asset_url }}" type="module"></script> 
       {% assign shopURL = 'static.rechargecdn.com/assets/js/widget.min.js?shop=' | append: shop.permanent_domain %}
   <script>
     (function AppOptimization() {
@@ -311,7 +322,7 @@
       var supportsPassive = getPassiveSupport();
       var blockUrl = {{ shopURL | json }}
       var page = {{ page | json }};
-      var shopSettings  = [{"url": blockUrl,"block_index": true,"block_product": true,"block_collection": true,"block_page": true,"block_blog": true,"block_article": true,"block_cart": true,"block_search": true,"block_customers": true,"block_gift_card": true}];      
+      var shopSettings  = [{"url": blockUrl,"block_index": true,"block_product": true,"block_collection": true,"block_page": true,"block_blog": true,"block_article": true,"block_cart": true,"block_search": true,"block_customers": true,"block_gift_card": true}];
 
       modifyCreateElement(shopSettings.map(loadTypeFromSettings).map(eventsFromSettings).map(outputLogic));
 
@@ -334,7 +345,7 @@
 
       function modifyCreateElement(logic) {
         var createElementBackup = document.createElement;
-        
+
         document.createElement = function() {
           var args = Array.prototype.slice.call(arguments);
           var node = createElementBackup.bind(document).apply(undefined, args);
@@ -346,7 +357,7 @@
 
           Object.defineProperties(node, {
             'src': {
-              get() { 
+              get() {
                 return node.getAttribute('src') || ''
               },
               set(src) {
@@ -420,13 +431,13 @@
         return function() {
           return fn.apply(this, args.concat(slice.call(arguments, 0)));
         };
-      } 
+      }
     })();
-  </script> 
+  </script>
 
 
     <script>
-      if (window.location.pathname.startsWith('/tools/recurring')) window.location.href = '/a/account/login'; 
+      if (window.location.pathname.startsWith('/tools/recurring')) window.location.href = '/a/account/login';
     </script>
   </head>
 
@@ -504,7 +515,8 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script src="{{ 'skio-cart-upsell.js' | asset_url }}" type="module"></script>
     <script src="{{ 'custom_script.js' | asset_url }}" defer="defer"></script>
-    
+
   </body>
 </html>

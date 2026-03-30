@@ -130,7 +130,13 @@
         tabindex="-1"
       >
         <a {% if block.settings.link %} href="{{ block.settings.link }}" {% else %} role="link" aria-disabled="true" {% endif %} class="invisible__link"></a>
-        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">          
+        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+          {%- liquid
+            assign first_slide_loading = 'lazy'
+            if section.index == 1 and forloop.first
+              assign first_slide_loading = 'eager'
+            endif
+          -%}
           {%- if block.settings.image -%}
             {%- liquid
               assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
@@ -150,13 +156,26 @@
               {{
                 block.settings.image
                 | image_url: width: 3840
-                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'desktop_media'
+                | image_tag:
+                  loading: first_slide_loading,
+                  width: block.settings.image.width,
+                  height: height,
+                  sizes: sizes,
+                  widths: widths,
+                  fetchpriority: fetch_priority,
+                  class: 'desktop_media'
               }}
             {%- else -%}
               {{
                 block.settings.image
                 | image_url: width: 3840
-                | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths, class: 'desktop_media'
+                | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.image.width,
+                  height: height,
+                  sizes: sizes,
+                  widths: widths,
+                  class: 'desktop_media'
               }}
             {%- endif -%}
           {%- else -%}
@@ -187,13 +206,26 @@
               {{
                 block.settings.mobile_image
                 | image_url: width: 3840
-                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'mobile_media'
+                | image_tag:
+                  loading: first_slide_loading,
+                  width: block.settings.mobile_image.width,
+                  height: height,
+                  sizes: sizes,
+                  widths: widths,
+                  fetchpriority: fetch_priority,
+                  class: 'mobile_media'
               }}
             {%- else -%}
               {{
                 block.settings.mobile_image
                 | image_url: width: 3840
-                | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths, class: 'mobile_media'
+                | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.mobile_image.width,
+                  height: height,
+                  sizes: sizes,
+                  widths: widths,
+                  class: 'mobile_media'
               }}
             {%- endif -%}
           {%- else -%}
@@ -373,7 +405,7 @@
     padding: 4rem 0;
   }
 }
-@media(max-width: 480px){ 
+@media(max-width: 480px){
   #shopify-section-{{ section.id }} .slideshow__text.banner__box .subtitle {
     font-size: 1.4rem;
   }
@@ -626,12 +658,12 @@
         {
           "type": "header",
           "content": "t:sections.slideshow.blocks.slide.settings.header_button.content"
-        },        
+        },
         {
           "type": "text",
           "id": "button_label",
           "default": "t:sections.slideshow.blocks.slide.settings.button_label.default",
-          "label": "t:sections.slideshow.blocks.slide.settings.button_label.label", 
+          "label": "t:sections.slideshow.blocks.slide.settings.button_label.label",
           "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
         },
         {
@@ -648,7 +680,7 @@
         {
           "type": "header",
           "content": "t:sections.slideshow.blocks.slide.settings.header_layout.content"
-        },         
+        },
         {
           "type": "checkbox",
           "id": "show_text_box",
@@ -738,7 +770,7 @@
           ],
           "default": "center",
           "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.label"
-        },        
+        },
         {
           "type": "color_scheme",
           "id": "color_scheme",

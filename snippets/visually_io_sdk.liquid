@@ -11,8 +11,8 @@
         var themeId = {{ theme.id }};
         var role = "{{ theme.role }}";
         window.loomi_ctx = {...(window.loomi_ctx || {}),storeAlias:alias,jitsuKey,env,themeId,role};
-        
-        
+
+
     {% if customer %}
       window.loomi_ctx.ctags = []
       {% for t in customer.tags %}
@@ -37,10 +37,9 @@
     })()
 </script>
 <link href="https://live.visually-io.com/cf/KEYNUTRIENTS.js?k=js.49737597096&e=2&s=KEYNUTRIENTS" rel="preload" as="script" data-em-disable>
-<link href="https://live.visually-io.com/cf/KEYNUTRIENTS.js?k=js.49737597096&e=2&s=KEYNUTRIENTS" rel="preload" as="script" data-em-disable>
 <link href="https://assets.visually.io/widgets/vsly-preact.min.js" rel="preload" as="script" data-em-disable>
-<script data-vsly="preact2" type="text/javascript" src="https://assets.visually.io/widgets/vsly-preact.min.js" data-em-disable></script>
-<script type="text/javascript" src="https://live.visually-io.com/cf/KEYNUTRIENTS.js" data-em-disable></script>
-<script type="text/javascript" src="https://live.visually-io.com/v/visually.js" data-em-disable></script>
+<script data-vsly="preact2" type="text/javascript" src="https://assets.visually.io/widgets/vsly-preact.min.js" defer data-em-disable></script>
+<script type="text/javascript" src="https://live.visually-io.com/cf/KEYNUTRIENTS.js" defer data-em-disable></script>
+<script type="text/javascript" src="https://live.visually-io.com/v/visually.js" defer data-em-disable></script>
 <script defer type="text/javascript" src="https://live.visually-io.com/v/visually-a.js" data-em-disable></script>
 <!--LOOMI SDK-->
