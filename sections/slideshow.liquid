@@ -132,8 +132,15 @@
         <a {% if block.settings.link %} href="{{ block.settings.link }}" {% else %} role="link" aria-disabled="true" {% endif %} class="invisible__link"></a>
         <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
           {%- liquid
+            # Homepage may place quick-buttons before slideshow (section.index 2+); still boost LCP.
+            assign prioritize_hero_media = false
+            if template.name == 'index' and section.index <= 2
+              assign prioritize_hero_media = true
+            elsif section.index == 1
+              assign prioritize_hero_media = true
+            endif
             assign first_slide_loading = 'lazy'
-            if section.index == 1 and forloop.first
+            if prioritize_hero_media and forloop.first
               assign first_slide_loading = 'eager'
             endif
           -%}
@@ -148,7 +155,7 @@
                 assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
               endif
               assign fetch_priority = 'auto'
-              if section.index == 1
+              if prioritize_hero_media
                 assign fetch_priority = 'high'
               endif
             -%}
@@ -198,7 +205,7 @@
                 assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
               endif
               assign fetch_priority = 'auto'
-              if section.index == 1
+              if prioritize_hero_media
                 assign fetch_priority = 'high'
               endif
             -%}

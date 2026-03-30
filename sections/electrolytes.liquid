@@ -123,7 +123,7 @@
 
 <style>
 #shopify-section-{{ section.id }} .gradient {
-  background: {{ section.settings.color_scheme.settings.background }} url({{ section.settings.bg_image | img_url:'master' }}) no-repeat;
+  background: {{ section.settings.color_scheme.settings.background }}{% if section.settings.bg_image != blank %} url({{ section.settings.bg_image | image_url: width: 1920, format: 'webp' }}){% endif %} no-repeat;
   background-size: cover;
   background-position: center center;
 }

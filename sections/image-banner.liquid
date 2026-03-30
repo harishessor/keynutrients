@@ -45,12 +45,18 @@
     assign half_width = '50vw'
     assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
   endif
+  assign prioritize_hero_media = false
+  if template.name == 'index' and section.index <= 2
+    assign prioritize_hero_media = true
+  elsif section.index == 1
+    assign prioritize_hero_media = true
+  endif
   assign fetch_priority = 'auto'
-  if section.index == 1
+  if prioritize_hero_media
     assign fetch_priority = 'high'
   endif
   assign hero_loading = 'lazy'
-  if section.index == 1
+  if prioritize_hero_media
     assign hero_loading = 'eager'
   endif
 -%}
