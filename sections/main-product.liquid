@@ -185,7 +185,41 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
-    {% render 'json-ld-product-faq', section: section %}
+    {%- liquid
+      assign faq_count = 0
+      for block in section.blocks
+        if block.type != 'collapsible_tab'
+          continue
+        endif
+        assign faq_q = block.settings.heading | default: block.settings.page.title | strip
+        assign faq_a = block.settings.content | append: ' ' | append: block.settings.page.content | strip_html | strip | replace: '&nbsp;', ' ' | truncate: 8000
+        if faq_q != blank and faq_a != blank
+          assign faq_count = faq_count | plus: 1
+        endif
+      endfor
+    -%}
+    {%- if faq_count > 0 -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign faq_sep = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'collapsible_tab' -%}
+            {%- assign faq_q = block.settings.heading | default: block.settings.page.title | strip -%}
+            {%- assign faq_a = block.settings.content | append: ' ' | append: block.settings.page.content | strip_html | strip | replace: '&nbsp;', ' ' | truncate: 8000 -%}
+            {%- if faq_q != blank and faq_a != blank -%}
+              {%- if faq_sep -%},{%- endif -%}
+              {%- assign faq_sep = true -%}
+              {"@type":"Question","name":{{ faq_q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq_a | json }}}}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+    </script>
+    {%- endif -%}
   </div>
 </product-info>
 
