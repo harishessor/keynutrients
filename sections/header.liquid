@@ -467,47 +467,6 @@
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
 
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-    {% endif %}
-    "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
-    "url": {{ request.origin | append: page.url | json }}
-  }
-</script>
-
-{%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": {{ shop.name | json }},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {{ potential_action_target | json }},
-        "query-input": "required name=search_term_string"
-      },
-      "url": {{ request.origin | append: page.url | json }}
-    }
-  </script>
-{%- endif -%}
-
-
 <style>
   #shopify-section-{{ section.id }} .secondary__header {
     border-top: 1px solid #0E1D30;
@@ -539,7 +498,7 @@
     position: relative;
   }
   #shopify-section-{{ section.id }} .header__search .header__icon--search {
-    height: 100%; 
+    height: 100%;
   }
   #shopify-section-{{ section.id }} .header__search .search__input.field__input {
     padding-right: 1.5rem;
@@ -808,7 +767,7 @@
     {
       "type": "text",
       "id": "highlight_menu",
-      "label": "Highlight Menu"      
+      "label": "Highlight Menu"
     },
     {
       "type": "color",
@@ -818,7 +777,7 @@
     {
       "type": "text",
       "id": "secondary_highlight_menu",
-      "label": "Secondary Highlight Menu"      
+      "label": "Secondary Highlight Menu"
     },
     {
       "type": "color",

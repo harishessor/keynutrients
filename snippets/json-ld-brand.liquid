@@ -1,0 +1,80 @@
+{% comment %}
+  Global Organization (+ WebSite on homepage) for AI SEO / entity clarity.
+  Kept in layout head so it is not duplicated with section output.
+{% endcomment %}
+{%- liquid
+  assign org_id = shop.url | append: '#organization'
+  assign desc = shop.description | strip_html | strip
+  if desc == blank
+    assign desc = shop.name | append: ' offers electrolyte and hydration supplements and related wellness products online.'
+  endif
+  if desc.size > 500
+    assign desc = desc | truncate: 500
+  endif
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ org_id | json }},
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }},
+      "description": {{ desc | json }},
+      "knowsAbout": [
+        {{ "Electrolyte supplements" | json }},
+        {{ "Hydration supplements" | json }},
+        {{ "Functional mushroom supplements" | json }},
+        {{ "Dietary supplements" | json }}
+      ]{% if settings.logo != blank %},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ settings.logo | image_url: width: 512 | prepend: "https:" | json }}
+      }{% endif %},
+      "sameAs": [
+        {%- assign same_first = true -%}
+        {%- if settings.social_twitter_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_twitter_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_facebook_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_facebook_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_pinterest_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_instagram_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_tiktok_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_tumblr_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_tumblr_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_snapchat_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_snapchat_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_youtube_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+        {%- if settings.social_vimeo_link != blank -%}
+          {%- unless same_first -%},{%- endunless -%}{{ settings.social_vimeo_link | json }}{%- assign same_first = false -%}
+        {%- endif -%}
+      ]
+    }{% if request.page_type == 'index' %},
+    {
+      "@type": "WebSite",
+      "@id": {{ shop.url | append: '#website' | json }},
+      "url": {{ shop.url | json }},
+      "name": {{ shop.name | json }},
+      "publisher": { "@id": {{ org_id | json }} },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ request.origin | append: routes.search_url | append: '?q={search_term_string}' | json }},
+        "query-input": "required name=search_term_string"
+      }
+    }{% endif %}
+  ]
+}
+</script>

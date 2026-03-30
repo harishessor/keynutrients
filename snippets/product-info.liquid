@@ -26,16 +26,11 @@
               {%- when 'title' -%}
 
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
+                  <h1 class="h1">{{ product.title | escape }}</h1>
                 </div>
 
               {%- when 'price' -%}
-                
+
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
                     product: product,
@@ -64,7 +59,7 @@
                       {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                     {%- endif -%}
                   </div>
-                {%- endif -%}                
+                {%- endif -%}
 
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
@@ -149,7 +144,7 @@
                 </div>
 
               {%- when 'customer-reviews' -%}
-                
+
                 {% if product.metafields.custom.customer_review_blocks != blank %}
                 <div class="product-info__customer-reviews" {{ block.shopify_attributes }}>
                   {%- render 'customer-reviews', block: block -%}
@@ -159,7 +154,7 @@
               {%- when 'image' -%}
 
                 {%- unless block.settings.show_below_gallery -%}
-                  {%- if block.settings.image != blank -%}        
+                  {%- if block.settings.image != blank -%}
                     <div class="product-info__image product_info_bottom visible-on-{{ block.settings.display }}" {{ block.shopify_attributes }}>
                       <a href="{{ block.settings.image_link }}">
                         {%- capture sizes -%}100%{%- endcapture -%}
@@ -526,7 +521,7 @@
                       {% render 'complementary-product', block: block %}
                   </div>
                 {% endunless %}
-                
+
               {%- when 'icon-with-text' -%}
 
                 {%- unless block.settings.show_below_gallery -%}

@@ -75,11 +75,11 @@
   {%- liquid
   assign has_content_below_gallery = false
   for block in section.blocks
-    
+
     unless block.settings.show_below_gallery
       continue
     endunless
-    
+
     if block.type == 'description'
       assign has_content_below_gallery = true
       break
@@ -95,8 +95,8 @@
     elsif block.type == 'complementary'
       assign has_content_below_gallery = true
       break
-    endif    
-    
+    endif
+
   endfor
 -%}
 
@@ -118,7 +118,7 @@
       {% endif %}
 
       <div class="grid__item product__media-wrapper">
-        
+
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
 
@@ -185,10 +185,11 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+    {% render 'json-ld-product-faq', section: section %}
   </div>
 </product-info>
 
-<style>  
+<style>
   {% if template == 'product' %}
   .button.loading>.loading__spinner .path {
       stroke: #fff;
@@ -248,7 +249,7 @@
   #shopify-section-{{ section.id }} .acc__panel p:first-child {
     margin-top: 0;
   }
-  #shopify-section-{{ section.id }} .acc__title:before, 
+  #shopify-section-{{ section.id }} .acc__title:before,
   #shopify-section-{{ section.id }} .acc__title:after {
     content: '';
     width: 14px;
@@ -372,7 +373,7 @@
     #shopify-section-{{ section.id }} .PwzrButtonBase-root {
       background: rgba(14, 29, 48, 1) !important;
     }
-    
+
   }
 
 </style>
