@@ -64,6 +64,9 @@
       "next_slide": "Bild till höger",
       "previous_slide": "Bild till vänster",
       "name": "Bild"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

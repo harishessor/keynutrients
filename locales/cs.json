@@ -64,6 +64,9 @@
       "next_slide": "Snímek vpravo",
       "previous_slide": "Snímek vlevo",
       "name": "Posuvník"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

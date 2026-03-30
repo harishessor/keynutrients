@@ -64,6 +64,9 @@
       "next_slide": "Sağa kaydır",
       "previous_slide": "Sola kaydır",
       "name": "Kaydırıcı"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

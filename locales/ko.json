@@ -64,6 +64,9 @@
       "next_slide": "오른쪽으로 슬라이드",
       "previous_slide": "왼쪽으로 슬라이드",
       "name": "슬라이더"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

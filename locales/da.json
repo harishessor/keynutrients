@@ -64,6 +64,9 @@
       "next_slide": "Skub til højre",
       "previous_slide": "Skub til venstre",
       "name": "Diasshow"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

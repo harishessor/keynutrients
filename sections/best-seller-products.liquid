@@ -21,7 +21,7 @@
         {%- endif -%}
         {%- if section.settings.description != blank -%}
         <div class="best-seller__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ section.settings.description -}}            
+            {{ section.settings.description -}}
         </div>
         {%- endif -%}
 
@@ -37,13 +37,27 @@
     </div>
 
     {%- for block in section.blocks -%}
-    <div id="bsp_tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}active{% endif %}">            
+    <div id="bsp_tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}active{% endif %}">
         <div class="best-seller-products__wrap">
 
             {% if block.settings.product1_image != blank %}
+            {%- assign bsp1_h = block.settings.product1_image.width
+              | divided_by: block.settings.product1_image.aspect_ratio
+              | round
+            -%}
             <div class="best-seller-product">
                 <div class="best-seller-product__image">
-                    <img src="{{ block.settings.product1_image | img_url:'master' }}">
+                    {{
+                      block.settings.product1_image
+                      | image_url: width: 1500
+                      | image_tag:
+                        width: block.settings.product1_image.width,
+                        height: bsp1_h,
+                        sizes: '(min-width: 990px) 40vw, 90vw',
+                        widths: '375, 550, 750, 1100, 1500',
+                        loading: 'lazy',
+                        alt: block.settings.product1_image.alt | default: block.settings.product1_title | default: shop.name
+                    }}
                 </div>
                 <div class="best-seller-product__content">
                     <div class="best-seller-product__upper">
@@ -56,7 +70,7 @@
                         </div>
                         {% endif %}
                     </div>
-                    {% if block.settings.product1 != blank %}                    
+                    {% if block.settings.product1 != blank %}
                     <div class="best-seller-product__link">
                         <a href="{{ block.settings.product1 }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
@@ -68,9 +82,23 @@
             {% endif %}
 
             {% if block.settings.product2_image != blank %}
+            {%- assign bsp2_h = block.settings.product2_image.width
+              | divided_by: block.settings.product2_image.aspect_ratio
+              | round
+            -%}
             <div class="best-seller-product">
                 <div class="best-seller-product__image">
-                    <img src="{{ block.settings.product2_image | img_url:'master' }}">
+                    {{
+                      block.settings.product2_image
+                      | image_url: width: 1500
+                      | image_tag:
+                        width: block.settings.product2_image.width,
+                        height: bsp2_h,
+                        sizes: '(min-width: 990px) 40vw, 90vw',
+                        widths: '375, 550, 750, 1100, 1500',
+                        loading: 'lazy',
+                        alt: block.settings.product2_image.alt | default: block.settings.product2_title | default: shop.name
+                    }}
                 </div>
                 <div class="best-seller-product__content">
                     <div class="best-seller-product__upper">
@@ -83,7 +111,7 @@
                         </div>
                         {% endif %}
                     </div>
-                    {% if block.settings.product2 != blank %}                    
+                    {% if block.settings.product2 != blank %}
                     <div class="best-seller-product__link">
                         <a href="{{ block.settings.product2 }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
@@ -95,9 +123,23 @@
             {% endif %}
 
             {% if block.settings.product3_image != blank %}
+            {%- assign bsp3_h = block.settings.product3_image.width
+              | divided_by: block.settings.product3_image.aspect_ratio
+              | round
+            -%}
             <div class="best-seller-product">
                 <div class="best-seller-product__image">
-                    <img src="{{ block.settings.product3_image | img_url:'master' }}">
+                    {{
+                      block.settings.product3_image
+                      | image_url: width: 1500
+                      | image_tag:
+                        width: block.settings.product3_image.width,
+                        height: bsp3_h,
+                        sizes: '(min-width: 990px) 40vw, 90vw',
+                        widths: '375, 550, 750, 1100, 1500',
+                        loading: 'lazy',
+                        alt: block.settings.product3_image.alt | default: block.settings.product3_title | default: shop.name
+                    }}
                 </div>
                 <div class="best-seller-product__content">
                     <div class="best-seller-product__upper">
@@ -246,7 +288,7 @@
     line-height: 18px;
     margin-top: 6px;
   }
-  #shopify-section-{{ section.id }} h2, 
+  #shopify-section-{{ section.id }} h2,
   #shopify-section-{{ section.id }} .h2 {
     font-size: calc(var(--font-heading-scale) * 2.8rem);
   }
@@ -281,7 +323,7 @@
     padding: 15px;
   }
 }
-@media(max-width: 480px) {  
+@media(max-width: 480px) {
   #shopify-section-{{ section.id }} .best-seller-products__wrap .best-seller-product .best-seller-product__image {
     padding-bottom: 120%;
   }
@@ -304,7 +346,7 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",

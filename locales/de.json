@@ -64,6 +64,9 @@
       "next_slide": "Nach rechts schieben",
       "previous_slide": "Nach links schieben",
       "name": "Slider"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

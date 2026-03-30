@@ -16,7 +16,7 @@
   <div class="section-{{ section.id }}-padding page-width">
 
     <div class="press__section">
-        
+
         <div class="press__wrap">
             <div class="swiper_btn press--prev">
                 <svg width="42" height="22" viewBox="0 0 42 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6227 2.12109L2.1215 10.6199L10.6227 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M3.57591 10.6196H40.0554" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
@@ -28,15 +28,30 @@
                 <svg width="42" height="22" viewBox="0 0 42 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.9327 2.12109L39.4339 10.6199L30.9327 19.1211" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/><path d="M37.9795 10.6196H1.5" stroke="#0E1D30" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/></svg>
             </div>
         </div>
-        
+
         <div class="press-logos__slider swiper-container">
             <div class="swiper-wrapper">
             {%- for block in section.blocks -%}
                 {% if block.settings.image != blank %}
+                {%- assign press_h = block.settings.image.width
+                  | divided_by: block.settings.image.aspect_ratio
+                  | round
+                -%}
                 <div class="press-item swiper-slide">
-                    <img src="{{ block.settings.image | img_url:'master' }}" data-quote="{{ block.settings.press_quote }}" alt="Discover">
+                    {{
+                      block.settings.image
+                      | image_url: width: 600
+                      | image_tag:
+                        width: block.settings.image.width,
+                        height: press_h,
+                        sizes: '180px',
+                        widths: '120, 180, 240, 360, 600',
+                        loading: 'lazy',
+                        alt: block.settings.image.alt | default: 'Press logo',
+                        data-quote: block.settings.press_quote
+                    }}
                 </div>
-                {% endif %} 
+                {% endif %}
             {%- endfor -%}
             </div>
             <div class="swiper_buttons_mobile">
@@ -156,7 +171,7 @@
   #shopify-section-{{ section.id }} .press__section .press-logos__slider .press-item {
     width: 100%;
     text-align: center;
-  } 
+  }
   .press-logos__slider {
     max-width: 250px;
     margin: 0 auto;

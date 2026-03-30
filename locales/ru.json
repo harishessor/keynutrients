@@ -64,6 +64,9 @@
       "next_slide": "Листать вперед",
       "previous_slide": "Листать назад",
       "name": "Ползунок"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

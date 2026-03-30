@@ -17,11 +17,25 @@
 {% capture flavors %}
 {%- for block in section.blocks -%}
   {% case block.type %}
-    {%- when 'flavor' -%}      
+    {%- when 'flavor' -%}
       <li class="flavor-item" data-image="{{ block.settings.flavor_image | img_url:'master' }}" data-bg-image="{{ block.settings.background_image | img_url:'master' }}" {{ block.shopify_attributes }}>
           {% if block.settings.flavor_icon != blank %}
+          {%- assign fl_icon_h = block.settings.flavor_icon.width
+            | divided_by: block.settings.flavor_icon.aspect_ratio
+            | round
+          -%}
           <span class="flavor_icon">
-            <img src="{{ block.settings.flavor_icon | img_url:'master' }}">
+            {{
+              block.settings.flavor_icon
+              | image_url: width: 120
+              | image_tag:
+                width: block.settings.flavor_icon.width,
+                height: fl_icon_h,
+                sizes: '40px',
+                widths: '40, 80, 120',
+                loading: 'lazy',
+                alt: block.settings.flavor_icon.alt | default: block.settings.flavor_name | default: ''
+            }}
           </span>
           {% endif %}
           {% if block.settings.flavor_name != blank %}
@@ -46,7 +60,7 @@
 
 {%- for block in section.blocks -%}
   {% case block.type %}
-    {%- when 'flavor' -%} 
+    {%- when 'flavor' -%}
       {% assign falavor__image = block.settings.flavor_image %}
       {% assign section__image = section.settings.image %}
       {% assign section__image = falavor__image %}
@@ -79,10 +93,18 @@
               (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
             {%- endcapture -%}
               {%- endif -%}
+              {%- assign of_main_h = section__image.width | divided_by: section__image.aspect_ratio | round -%}
               {{
                 section__image
                 | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'custom_flavor__image'
+                | image_tag:
+                  sizes: sizes,
+                  widths: widths,
+                  fetchpriority: fetch_priority,
+                  class: 'custom_flavor__image',
+                  width: section__image.width,
+                  height: of_main_h,
+                  alt: section__image.alt | default: section.settings.title | default: shop.name
               }}
             {%- else -%}
               {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -124,8 +146,22 @@
                             <a href="javascript:void(0);" class="js-link">
                                 <div class="flavor-item-selected" data-image="{{ block.settings.flavor_image | img_url:'master' }}" data-bg-image="{{ block.settings.background_image | img_url:'master' }}" {{ block.shopify_attributes }}>
                                     {% if block.settings.flavor_icon != blank %}
+                                    {%- assign fl_sel_icon_h = block.settings.flavor_icon.width
+                                      | divided_by: block.settings.flavor_icon.aspect_ratio
+                                      | round
+                                    -%}
                                     <span class="flavor_icon">
-                                        <img src="{{ block.settings.flavor_icon | img_url:'master' }}">
+                                        {{
+                                          block.settings.flavor_icon
+                                          | image_url: width: 120
+                                          | image_tag:
+                                            width: block.settings.flavor_icon.width,
+                                            height: fl_sel_icon_h,
+                                            sizes: '40px',
+                                            widths: '40, 80, 120',
+                                            loading: 'lazy',
+                                            alt: block.settings.flavor_icon.alt | default: block.settings.flavor_name | default: ''
+                                        }}
                                     </span>
                                     {% endif %}
                                     {% if block.settings.flavor_name != blank %}
@@ -139,7 +175,7 @@
                             <ul class="js-dropdown-list">
                                 {{ flavors }}
                             </ul>
-                        </div>                      
+                        </div>
                     </div>
                     {% assign flavors_rendered = true %}
                   {% endunless %}
@@ -442,7 +478,7 @@ $(function() {
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header.content"
-    }, 
+    },
     {
       "type": "select",
       "id": "content_layout",
@@ -458,7 +494,7 @@ $(function() {
       ],
       "default": "no-overlap",
       "label": "t:sections.image-with-text.settings.content_layout.label"
-    },       
+    },
     {
       "type": "select",
       "id": "desktop_content_position",
@@ -522,7 +558,7 @@ $(function() {
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header_colors.content"
-    },        
+    },
     {
       "type": "color_scheme",
       "id": "section_color_scheme",
@@ -653,7 +689,7 @@ $(function() {
     },
     {
       "type": "text",
-      "name": "t:sections.image-with-text.blocks.text.name",      
+      "name": "t:sections.image-with-text.blocks.text.name",
       "settings": [
         {
           "type": "richtext",

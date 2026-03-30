@@ -107,7 +107,7 @@
                     {%- endif -%}
                     <p class="announcement-bar__message">
                       <span>
-                        {{ block.settings.text | escape }}                        
+                        {{ block.settings.text | escape }}
                       </span>
                       {% if section.settings.show_offer_drawer %}
                       <span class="offer_drawer_opener" onclick="document.querySelector('#offers-drawer').open()">VIEW OFFER</span>
@@ -116,7 +116,7 @@
                     {%- if block.settings.link != blank -%}
                       </a>
                     {%- endif -%}
-                    
+
                   {%- endif -%}
                 </div>
               </div>
@@ -171,7 +171,7 @@
         </localization-form>
       {%- endif -%}
     </div>
-    {%- endif -%}   
+    {%- endif -%}
 
     </div>
 
@@ -191,14 +191,28 @@
           <div class="drawer__offers">
             <div class="offer-item">
               {% if section.settings.offer1_image != blank %}
+              {%- assign offer1_h = section.settings.offer1_image.width
+                | divided_by: section.settings.offer1_image.aspect_ratio
+                | round
+              -%}
               <div class="offer_img">
-                <img src="{{ section.settings.offer1_image | img_url:'master' }}">
+                {{
+                  section.settings.offer1_image
+                  | image_url: width: 800
+                  | image_tag:
+                    width: section.settings.offer1_image.width,
+                    height: offer1_h,
+                    sizes: 'min(40vw, 320px)',
+                    widths: '200, 360, 540, 800',
+                    loading: 'lazy',
+                    alt: section.settings.offer1_image.alt | default: section.settings.offer1_title | default: shop.name
+                }}
               </div>
               {% endif %}
               {% if section.settings.offer1_title != blank %}
-              <div class="offer_content">            
+              <div class="offer_content">
                 <h3>{{ section.settings.offer1_title }}</h3>
-                
+
                 {% if section.settings.offer1_text != blank %}
                 <div class="rte">
                   {{ section.settings.offer1_text }}
@@ -213,14 +227,28 @@
 
             <div class="offer-item">
               {% if section.settings.offer2_image != blank %}
+              {%- assign offer2_h = section.settings.offer2_image.width
+                | divided_by: section.settings.offer2_image.aspect_ratio
+                | round
+              -%}
               <div class="offer_img">
-                <img src="{{ section.settings.offer2_image | img_url:'master' }}">
+                {{
+                  section.settings.offer2_image
+                  | image_url: width: 800
+                  | image_tag:
+                    width: section.settings.offer2_image.width,
+                    height: offer2_h,
+                    sizes: 'min(40vw, 320px)',
+                    widths: '200, 360, 540, 800',
+                    loading: 'lazy',
+                    alt: section.settings.offer2_image.alt | default: section.settings.offer2_title | default: shop.name
+                }}
               </div>
               {% endif %}
               {% if section.settings.offer2_title != blank %}
-              <div class="offer_content">            
+              <div class="offer_content">
                 <h3>{{ section.settings.offer2_title }}</h3>
-                
+
                 {% if section.settings.offer2_text != blank %}
                 <div class="rte">
                   {{ section.settings.offer2_text }}
@@ -235,14 +263,28 @@
 
             <div class="offer-item">
               {% if section.settings.offer3_image != blank %}
+              {%- assign offer3_h = section.settings.offer3_image.width
+                | divided_by: section.settings.offer3_image.aspect_ratio
+                | round
+              -%}
               <div class="offer_img">
-                <img src="{{ section.settings.offer3_image | img_url:'master' }}">
+                {{
+                  section.settings.offer3_image
+                  | image_url: width: 800
+                  | image_tag:
+                    width: section.settings.offer3_image.width,
+                    height: offer3_h,
+                    sizes: 'min(40vw, 320px)',
+                    widths: '200, 360, 540, 800',
+                    loading: 'lazy',
+                    alt: section.settings.offer3_image.alt | default: section.settings.offer3_title | default: shop.name
+                }}
               </div>
               {% endif %}
               {% if section.settings.offer3_title != blank %}
-              <div class="offer_content">            
+              <div class="offer_content">
                 <h3>{{ section.settings.offer3_title }}</h3>
-                
+
                 {% if section.settings.offer3_text != blank %}
                 <div class="rte">
                   {{ section.settings.offer3_text }}
@@ -258,7 +300,7 @@
         </div>
       </div>
     </offers-drawer>
-    
+
   </div>
 </div>
 
@@ -270,7 +312,7 @@
     justify-content: center;
     max-width: 100%;
     padding: 12px 0;
-  }  
+  }
   .announcement-bar__announcement {
     font-size: 12px;
     font-style: normal;
@@ -385,13 +427,13 @@
     font-style: normal;
     font-weight: 600;
     line-height: 24px;
-    font-family: var(--text-font-family);    
+    font-family: var(--text-font-family);
   }
   .offer-item .offer_content .rte {
     color: #55524C;
     font-size: 14px;
     font-weight: 400;
-    line-height: 22px; 
+    line-height: 22px;
     margin: 5px 0;
   }
   .offer-item .offer_content a {
@@ -432,7 +474,7 @@
       "id": "color_scheme_drawer",
       "label": "Color Scheme Drawer",
       "default": "scheme-4"
-    },  
+    },
     {
       "type": "checkbox",
       "id": "show_line_separator",
@@ -547,7 +589,7 @@
     {
       "type": "paragraph",
          "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
+    },
     {
       "type": "checkbox",
       "id": "show_social",

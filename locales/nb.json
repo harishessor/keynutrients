@@ -64,6 +64,9 @@
       "next_slide": "Bla til høyre",
       "previous_slide": "Bla til venstre",
       "name": "Glidefelt"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

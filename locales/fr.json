@@ -64,6 +64,9 @@
       "next_slide": "Faire glisser vers la droite",
       "previous_slide": "Faire glisser vers la gauche",
       "name": "Carrousel"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

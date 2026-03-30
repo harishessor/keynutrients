@@ -33,7 +33,7 @@
 
                 {% assign is_megamenu = false %}
                 {% for block in section.blocks %}
-                  {%- if block.type == 'mega-menu' and block.settings.menu_title == link.title -%}            
+                  {%- if block.type == 'mega-menu' and block.settings.menu_title == link.title -%}
                     {% assign is_megamenu = true %}
                   {% endif %}
                 {% endfor %}
@@ -80,50 +80,92 @@
                       {%- if block.type == 'mega-menu' and block.settings.menu_title == link.title -%}
 
                         {% if block.settings.megamenu__image1 != blank %}
+                        {%- assign mm1_h = block.settings.megamenu__image1.width
+                          | divided_by: block.settings.megamenu__image1.aspect_ratio
+                          | round
+                        -%}
                         <div class="megamenu__column">
                           <a href="{{ block.settings.megamenu__image1_link }}">
                             <div class="megamenu__image">
-                              <img src="{{ block.settings.megamenu__image1 | img_url:'master' }}">
-                            </div>                      
+                              {{
+                                block.settings.megamenu__image1
+                                | image_url: width: 800
+                                | image_tag:
+                                  width: block.settings.megamenu__image1.width,
+                                  height: mm1_h,
+                                  sizes: '280px',
+                                  widths: '200, 360, 560, 800',
+                                  loading: 'lazy',
+                                  alt: block.settings.megamenu__image1.alt | default: block.settings.megamenu__image1_title | default: link.title
+                              }}
+                            </div>
                             {% if block.settings.megamenu__image1_title != blank %}
                             <div class="megamenu__title">
                               {{ block.settings.megamenu__image1_title }}
-                            </div>  
+                            </div>
                             {% endif %}
                           </a>
                         </div>
                         {% endif %}
 
                         {% if block.settings.megamenu__image2 != blank %}
+                        {%- assign mm2_h = block.settings.megamenu__image2.width
+                          | divided_by: block.settings.megamenu__image2.aspect_ratio
+                          | round
+                        -%}
                         <div class="megamenu__column">
                           <a href="{{ block.settings.megamenu__image2_link }}">
                             <div class="megamenu__image">
-                              <img src="{{ block.settings.megamenu__image2 | img_url:'master' }}">
-                            </div>                      
+                              {{
+                                block.settings.megamenu__image2
+                                | image_url: width: 800
+                                | image_tag:
+                                  width: block.settings.megamenu__image2.width,
+                                  height: mm2_h,
+                                  sizes: '280px',
+                                  widths: '200, 360, 560, 800',
+                                  loading: 'lazy',
+                                  alt: block.settings.megamenu__image2.alt | default: block.settings.megamenu__image2_title | default: link.title
+                              }}
+                            </div>
                             {% if block.settings.megamenu__image2_title != blank %}
                             <div class="megamenu__title">
                               {{ block.settings.megamenu__image2_title }}
-                            </div>  
+                            </div>
                             {% endif %}
                           </a>
                         </div>
                         {% endif %}
 
                         {% if block.settings.megamenu__image3 != blank %}
+                        {%- assign mm3_h = block.settings.megamenu__image3.width
+                          | divided_by: block.settings.megamenu__image3.aspect_ratio
+                          | round
+                        -%}
                         <div class="megamenu__column">
                           <a href="{{ block.settings.megamenu__image3_link }}">
                             <div class="megamenu__image">
-                              <img src="{{ block.settings.megamenu__image3 | img_url:'master' }}">
-                            </div>                      
+                              {{
+                                block.settings.megamenu__image3
+                                | image_url: width: 800
+                                | image_tag:
+                                  width: block.settings.megamenu__image3.width,
+                                  height: mm3_h,
+                                  sizes: '280px',
+                                  widths: '200, 360, 560, 800',
+                                  loading: 'lazy',
+                                  alt: block.settings.megamenu__image3.alt | default: block.settings.megamenu__image3_title | default: link.title
+                              }}
+                            </div>
                             {% if block.settings.megamenu__image3_title != blank %}
                             <div class="megamenu__title">
                               {{ block.settings.megamenu__image3_title }}
-                            </div>  
+                            </div>
                             {% endif %}
                           </a>
                         </div>
                         {% endif %}
-                        
+
                       {% endif %}
                     {% endfor %}
                   {% endif %}

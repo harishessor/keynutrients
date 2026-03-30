@@ -17,11 +17,22 @@
 {% capture icons-content %}
 {%- for block in section.blocks -%}
   {% case block.type %}
-    {%- when 'icon' -%}      
+    {%- when 'icon' -%}
       <div class="icon-item" {{ block.shopify_attributes }}>
           {% if block.settings.icon != blank %}
+          {%- assign iwt_icon_h = block.settings.icon.width | divided_by: block.settings.icon.aspect_ratio | round -%}
           <span class="icon_img">
-              <img src="{{ block.settings.icon | img_url:'master' }}">
+              {{
+                block.settings.icon
+                | image_url: width: 120
+                | image_tag:
+                  width: block.settings.icon.width,
+                  height: iwt_icon_h,
+                  sizes: '48px',
+                  widths: '48, 96, 120',
+                  loading: 'lazy',
+                  alt: block.settings.icon.alt | default: block.settings.icon_title | default: ''
+              }}
           </span>
           {% endif %}
           <div class="icon_content">
@@ -42,7 +53,7 @@
 {% capture key-points %}
 {%- for block in section.blocks -%}
   {% case block.type %}
-    {%- when 'key-point' -%}      
+    {%- when 'key-point' -%}
       <div class="key-item" {{ block.shopify_attributes }}>
           {% if block.settings.title != blank %}
           <h5 class="h5">{{ block.settings.title }}</h5>
@@ -60,7 +71,7 @@
 {% capture badges %}
 {%- for block in section.blocks -%}
   {% case block.type %}
-    {%- when 'badge' -%}            
+    {%- when 'badge' -%}
 
     <div class="badge_item">
       {% if block.settings.badge != blank %}
@@ -75,7 +86,7 @@
         {% endif %}
         <div class="badge_tooltip__desc rte">
           {{ block.settings.badge_content }}
-        </div>        
+        </div>
       </div>
       {% endif %}
     </div>

@@ -64,6 +64,9 @@
       "next_slide": "Плъзгане надясно",
       "previous_slide": "Плъзгане наляво",
       "name": "Плъзгач"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

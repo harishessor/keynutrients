@@ -1,20 +1,31 @@
 <div class="video-reels-lists">
     {% for video_reel in product.metafields.custom.video_reels.value %}
         {% assign video_file = video_reel.video_file.value %}
-        {% assign video_thumb = video_reel.video_thumbnail | image_url: width: 100 %}
-        {% assign video_poster = video_reel.video_thumbnail | img_url: 'master' %}
+        {% assign video_thumb_img = video_reel.video_thumbnail %}
+        {% assign video_poster = video_reel.video_thumbnail | image_url: width: 1200 %}
         {% assign video_title = video_reel.video_title %}
+        {% assign vthumb_h = video_thumb_img.width | divided_by: video_thumb_img.aspect_ratio | round %}
 
-        <div class="video-reel-item"> 
+        <div class="video-reel-item">
             <a data-fancybox="reels" data-src="#video-{{ forloop.index0 }}" href="javascript:;" data-aspect-ratio="9 / 16">
-            <div class="video-reel-thumb"> 
-                <img src="{{ video_thumb }}"> 
-                <span class="play_icon"> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22" fill="none"><path d="M18.75 10.8253L8.87767e-07 21.6506L1.83415e-06 -8.19588e-07L18.75 10.8253Z" fill="white"/></svg> 
-                </span> 
-            </div> 
-            <div class="video-reel-content"> 
-                <span class="video-title">{{ video_title }}</span> 
+            <div class="video-reel-thumb">
+                {{
+                  video_thumb_img
+                  | image_url: width: 200
+                  | image_tag:
+                    width: video_thumb_img.width,
+                    height: vthumb_h,
+                    sizes: '100px',
+                    widths: '100, 200',
+                    loading: 'lazy',
+                    alt: video_title | default: 'Video thumbnail'
+                }}
+                <span class="play_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22" fill="none"><path d="M18.75 10.8253L8.87767e-07 21.6506L1.83415e-06 -8.19588e-07L18.75 10.8253Z" fill="white"/></svg>
+                </span>
+            </div>
+            <div class="video-reel-content">
+                <span class="video-title">{{ video_title }}</span>
             </div>
             </a>
             <div class="video_reel__popup" id="video-{{ forloop.index0 }}" style="display:none;">
@@ -52,16 +63,16 @@
         border-radius: 100%;
         overflow: hidden;
         border: 5px solid #fff;
-        cursor: pointer;    
+        cursor: pointer;
         outline: 2px solid #0E1D30;
-    }  
-    #shopify-section-{{ section.id }} .video-reel-thumb:hover img { 
-        transform: scale(1.1); 
     }
-    #shopify-section-{{ section.id }} .video-reel-thumb img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
+    #shopify-section-{{ section.id }} .video-reel-thumb:hover img {
+        transform: scale(1.1);
+    }
+    #shopify-section-{{ section.id }} .video-reel-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         transition: transform 0.3s ease;
     }
     #shopify-section-{{ section.id }} .play_icon {

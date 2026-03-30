@@ -64,6 +64,9 @@
       "next_slide": "Przesuń w prawo",
       "previous_slide": "Przesuń w lewo",
       "name": "Suwak"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

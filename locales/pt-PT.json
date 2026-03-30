@@ -64,6 +64,9 @@
       "next_slide": "Deslizar para a direita",
       "previous_slide": "Deslizar para a esquerda",
       "name": "Slider"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

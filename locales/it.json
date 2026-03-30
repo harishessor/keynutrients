@@ -64,6 +64,9 @@
       "next_slide": "Scorri verso destra",
       "previous_slide": "Scorri verso sinistra",
       "name": "Cursore"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

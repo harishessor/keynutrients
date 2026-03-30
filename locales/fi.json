@@ -64,6 +64,9 @@
       "next_slide": "Liu'uta oikealle",
       "previous_slide": "Liu'uta vasemmalle",
       "name": "Liukusäädin"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

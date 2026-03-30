@@ -64,6 +64,9 @@
       "next_slide": "右にスライド",
       "previous_slide": "左にスライド",
       "name": "スライダー"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

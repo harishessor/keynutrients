@@ -64,6 +64,9 @@
       "next_slide": "Slinkti dešinėn",
       "previous_slide": "Slinkti kairėn",
       "name": "Slankiklis"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

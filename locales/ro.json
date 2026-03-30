@@ -64,6 +64,9 @@
       "next_slide": "Glisare la dreapta",
       "previous_slide": "Glisare la stânga",
       "name": "Glisor"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

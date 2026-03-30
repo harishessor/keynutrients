@@ -64,6 +64,9 @@
       "next_slide": "ไปสไลด์ขวา",
       "previous_slide": "ไปสไลด์ซ้าย",
       "name": "แถบเลื่อน"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

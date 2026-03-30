@@ -92,9 +92,23 @@
                       assign number_of_columns_mobile = section.settings.columns_mobile
                       assign grid_space_desktop = number_of_columns | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
                       assign grid_space_tablet = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
-                      assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'                      
-                    -%}                    
-                    <img src="{{ block.settings.image | img_url:'master' }}">
+                      assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'
+                    -%}
+                    {%- assign twi_img_h = block.settings.image.width
+                      | divided_by: block.settings.image.aspect_ratio
+                      | round
+                    -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        width: block.settings.image.width,
+                        height: twi_img_h,
+                        sizes: '(min-width: 990px) calc((min(100vw, {{ settings.page_width }}px) - 100px) / {{ number_of_columns }}), (min-width: 750px) 45vw, 90vw',
+                        widths: '165, 360, 535, 750, 1070, 1200',
+                        loading: 'lazy',
+                        alt: block.settings.image.alt | default: block.settings.title | default: shop.name
+                    }}
                   </div>
                 </div>
               {%- endif -%}
@@ -174,7 +188,7 @@
             href="{{ section.settings.button_link }}"
           {% endif %}
         >
-          {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}          
+          {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}
         </a>
       {%- endif -%}
     </div>
@@ -182,7 +196,7 @@
 </div>
 
 <script>
-// Icon with text slider added dots 
+// Icon with text slider added dots
 document.addEventListener("DOMContentLoaded", function () {
 
   const slider = document.querySelector('#Slider-{{ section.id }}');
@@ -396,23 +410,23 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_button.content"
-    },    
+    },
     {
       "type": "text",
       "id": "button_label",
       "default": "t:sections.multicolumn.settings.button_label.default",
-      "label": "t:sections.multicolumn.settings.button_label.label", 
+      "label": "t:sections.multicolumn.settings.button_label.label",
       "info": "t:sections.multicolumn.settings.button_label.info"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "t:sections.multicolumn.settings.button_link.label"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_layout.content"
-    },     
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -459,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_mobile.content"

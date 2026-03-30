@@ -14,7 +14,7 @@
 
 {%- if section.blocks.size > 0 -%}
 <div class="pi-key-benefits color-{{ section.settings.color_scheme }} gradient">
-    
+
     <div class="section-{{ section.id }}-padding page-width">
 
         <div class="key-benefits__title title-wrapper center title-wrapper--no-top-margin">
@@ -42,7 +42,21 @@
                     {% if block.settings.icon != blank %}
                     <div class="key-benefits_item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
                         <div class="icon">
-                            <img src="{{ block.settings.icon | img_url:'master' }}">
+                            {%- assign kb_icon_h = block.settings.icon.width
+                              | divided_by: block.settings.icon.aspect_ratio
+                              | round
+                            -%}
+                            {{
+                              block.settings.icon
+                              | image_url: width: 120
+                              | image_tag:
+                                width: block.settings.icon.width,
+                                height: kb_icon_h,
+                                sizes: '48px',
+                                widths: '48, 96, 120',
+                                loading: 'lazy',
+                                alt: block.settings.icon.alt | default: block.settings.icon_title | default: ''
+                            }}
                         </div>
                         {% if block.settings.icon_title != blank %}
                         <span class="icon_title">{{ block.settings.icon_title }}</span>
@@ -53,7 +67,21 @@
             </div>
             <div class="key-benefits__column key-benefits__list_empty">
                 {% if section.settings.image != blank %}
-                <img src="{{ section.settings.image | img_url:'master' }}">
+                {%- assign kb_center_h = section.settings.image.width
+                  | divided_by: section.settings.image.aspect_ratio
+                  | round
+                -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 1500
+                  | image_tag:
+                    width: section.settings.image.width,
+                    height: kb_center_h,
+                    sizes: '(min-width: 750px) 35vw, 80vw',
+                    widths: '375, 550, 750, 1100, 1500',
+                    loading: 'lazy',
+                    alt: section.settings.image.alt | default: section.settings.title | default: shop.name
+                }}
                 {% endif %}
             </div>
             <div class="key-benefits__column key-benefits__list">
@@ -61,7 +89,21 @@
                     {% if block.settings.icon != blank %}
                     <div class="key-benefits_item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
                         <div class="icon">
-                            <img src="{{ block.settings.icon | img_url:'master' }}">
+                            {%- assign kb_icon_h = block.settings.icon.width
+                              | divided_by: block.settings.icon.aspect_ratio
+                              | round
+                            -%}
+                            {{
+                              block.settings.icon
+                              | image_url: width: 120
+                              | image_tag:
+                                width: block.settings.icon.width,
+                                height: kb_icon_h,
+                                sizes: '48px',
+                                widths: '48, 96, 120',
+                                loading: 'lazy',
+                                alt: block.settings.icon.alt | default: block.settings.icon_title | default: ''
+                            }}
                         </div>
                         {% if block.settings.icon_title != blank %}
                         <span class="icon_title">{{ block.settings.icon_title }}</span>
@@ -73,16 +115,16 @@
         </div>
 
         {% if section.settings.button_label != blank %}
-        <div class="section-footer center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">            
+        <div class="section-footer center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ section.settings.button_link }}" {% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
                 {{ section.settings.button_label | escape }} {% render 'icon-arrow' %}
-            </a>            
+            </a>
         </div>
         {% endif %}
 
     </div>
-    
-</div>            
+
+</div>
 {%- endif -%}
 
 <style>
@@ -217,7 +259,7 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "tag": "section",  
+  "tag": "section",
   "settings": [
     {
       "type": "checkbox",
@@ -280,7 +322,7 @@
       ],
       "default": "medium",
       "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",

@@ -64,6 +64,9 @@
       "next_slide": "Naar rechts schuiven",
       "previous_slide": "Naar links schuiven",
       "name": "Schuifregelaar"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

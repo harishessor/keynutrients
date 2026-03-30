@@ -64,6 +64,9 @@
       "next_slide": "投影片右側",
       "previous_slide": "投影片左側",
       "name": "投影播放器"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

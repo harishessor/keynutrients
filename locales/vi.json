@@ -64,6 +64,9 @@
       "next_slide": "Trượt sang phải",
       "previous_slide": "Trượt sang trái",
       "name": "Thanh trượt"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {

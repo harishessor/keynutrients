@@ -64,6 +64,9 @@
       "next_slide": "Klizno pomakni udesno",
       "previous_slide": "Klizno pomakni ulijevo",
       "name": "Kliznik"
+    },
+    "rating": {
+      "info": "Rated {{ rating_value }} out of {{ rating_max }} stars"
     }
   },
   "newsletter": {
