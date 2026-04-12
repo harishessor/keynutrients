@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopify agent — product images</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Instrument+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f1419;
+        --surface: #1a222c;
+        --border: #2d3a4a;
+        --text: #e8edf4;
+        --muted: #8b9cb3;
+        --accent: #3d9cf5;
+        --accent-dim: #2563a8;
+        --ok: #34c759;
+        --err: #ff5c5c;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "DM Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+        padding: 2rem 1.25rem 4rem;
+      }
+      .wrap {
+        max-width: 36rem;
+        margin: 0 auto;
+      }
+      h1 {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        font-size: 1.85rem;
+        margin: 0 0 0.35rem;
+        letter-spacing: -0.02em;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      label {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin-bottom: 0.45rem;
+      }
+      .field {
+        margin-bottom: 1.25rem;
+      }
+      input[type="search"],
+      input[type="text"],
+      input[type="file"],
+      select {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 1rem;
+      }
+      input[type="file"] {
+        padding: 0.55rem;
+        cursor: pointer;
+      }
+      select {
+        cursor: pointer;
+      }
+      .row {
+        display: flex;
+        gap: 0.5rem;
+        align-items: stretch;
+      }
+      .row input[type="search"] {
+        flex: 1;
+      }
+      button {
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.65rem 1.1rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        background: var(--accent);
+        color: #061018;
+      }
+      button:hover {
+        filter: brightness(1.08);
+      }
+      button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        filter: none;
+      }
+      .hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.35rem;
+      }
+      .msg {
+        margin-top: 1rem;
+        padding: 0.85rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        display: none;
+      }
+      .msg.show {
+        display: block;
+      }
+      .msg.ok {
+        background: rgba(52, 199, 89, 0.12);
+        border: 1px solid rgba(52, 199, 89, 0.35);
+        color: #9ee5b0;
+      }
+      .msg.err {
+        background: rgba(255, 92, 92, 0.1);
+        border: 1px solid rgba(255, 92, 92, 0.35);
+        color: #ffb4b4;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <span class="pill">Local only · append to gallery</span>
+      <h1>Upload product images</h1>
+      <p class="sub">Search your catalog, pick a product, choose file(s). Images are added to the end of the product gallery.</p>
+
+      <div class="field">
+        <label for="q">Find product</label>
+        <div class="row">
+          <input
+            id="q"
+            type="search"
+            placeholder="Title or handle…"
+            autocomplete="off"
+          />
+          <button type="button" id="btnSearch">Search</button>
+        </div>
+        <p class="hint">Leave empty and search to load recently updated products.</p>
+      </div>
+
+      <div class="field">
+        <label for="product">Product</label>
+        <select id="product" required>
+          <option value="">— Select a product —</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="images">Image files</label>
+        <input id="images" type="file" accept="image/jpeg,image/png,image/gif,image/webp,.jpg,.jpeg,.png,.gif,.webp" multiple />
+      </div>
+
+      <div class="field">
+        <label for="alt">Alt text (optional, same for all files in this upload)</label>
+        <input id="alt" type="text" placeholder="Describe the image for accessibility" />
+      </div>
+
+      <button type="button" id="btnUpload">Upload to Shopify</button>
+
+      <div id="msg" class="msg" role="status"></div>
+    </div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const productSel = $("product");
+      const msg = $("msg");
+
+      function showMsg(text, ok) {
+        msg.textContent = text;
+        msg.className = "msg show " + (ok ? "ok" : "err");
+      }
+      function hideMsg() {
+        msg.className = "msg";
+        msg.textContent = "";
+      }
+
+      async function loadProducts(q) {
+        const params = new URLSearchParams();
+        if (q) params.set("q", q);
+        const res = await fetch("/api/products?" + params.toString());
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || res.statusText);
+        return data.products || [];
+      }
+
+      async function doSearch() {
+        hideMsg();
+        const q = $("q").value.trim();
+        $("btnSearch").disabled = true;
+        try {
+          const products = await loadProducts(q);
+          const cur = productSel.value;
+          productSel.innerHTML = '<option value="">— Select a product —</option>';
+          for (const p of products) {
+            const opt = document.createElement("option");
+            opt.value = p.handle;
+            opt.textContent = p.title + " (" + p.handle + ")";
+            productSel.appendChild(opt);
+          }
+          if (cur && [...productSel.options].some((o) => o.value === cur)) {
+            productSel.value = cur;
+          }
+          if (products.length === 0) showMsg("No products found.", false);
+        } catch (e) {
+          showMsg(e.message || String(e), false);
+        } finally {
+          $("btnSearch").disabled = false;
+        }
+      }
+
+      $("btnSearch").addEventListener("click", doSearch);
+
+      let searchTimer;
+      $("q").addEventListener("input", () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(doSearch, 400);
+      });
+
+      $("btnUpload").addEventListener("click", async () => {
+        hideMsg();
+        const handle = productSel.value;
+        const files = $("images").files;
+        if (!handle) {
+          showMsg("Select a product.", false);
+          return;
+        }
+        if (!files || files.length === 0) {
+          showMsg("Choose at least one image.", false);
+          return;
+        }
+        const fd = new FormData();
+        fd.append("handle", handle);
+        const alt = $("alt").value.trim();
+        if (alt) fd.append("alt", alt);
+        for (let i = 0; i < files.length; i++) {
+          fd.append("images", files[i]);
+        }
+        $("btnUpload").disabled = true;
+        try {
+          const res = await fetch("/api/upload", { method: "POST", body: fd });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || res.statusText);
+          showMsg(
+            "Uploaded " +
+              data.uploaded +
+              " image(s) to “" +
+              data.title +
+              "”. Refresh the product page in Admin to see them.",
+            true
+          );
+          $("images").value = "";
+        } catch (e) {
+          showMsg(e.message || String(e), false);
+        } finally {
+          $("btnUpload").disabled = false;
+        }
+      });
+
+      doSearch();
+    </script>
+  </body>
+</html>

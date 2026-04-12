@@ -2,3 +2,8 @@
 node_modules/
 .DS_Store
 *.log
+
+# Shopify agent CLI (secrets + drop folder)
+tools/shopify-agent/.env
+tools/shopify-agent/.shopify-token.json
+tools/shopify-agent/incoming/
